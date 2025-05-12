@@ -85,7 +85,7 @@ export default function Home() {
       styles.header,
       styles.gradientLeft,
       styles.gradientBottom,
-    ]
+    ],
   );
 
   // const onDirectionHandledWithoutMovement = useCallback(
@@ -132,7 +132,7 @@ export default function Home() {
             )}
           </SpatialNavigationFocusableView>
         ),
-        [styles]
+        [styles],
       );
 
       return (
@@ -154,7 +154,7 @@ export default function Home() {
         </View>
       );
     },
-    [styles, styles.headerImage, styles.thumbnailText]
+    [styles, styles.headerImage, styles.thumbnailText],
   );
 
   return (

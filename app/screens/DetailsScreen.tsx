@@ -4,7 +4,7 @@ import { useCallback } from "react";
 import { useIsFocused } from "@react-navigation/native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { scaledPixels } from "../hooks/useScale";
-import FocusablePressable from "./FocusablePressable";
+import FocusablePressable from "../components/FocusablePressable";
 
 interface LocalParams extends Record<string, any> {
   title: string;

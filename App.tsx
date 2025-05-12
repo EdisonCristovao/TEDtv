@@ -8,9 +8,9 @@ import { SupportedKeys } from "./app/remote-control/SupportedKeys";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import HomeScreen from "./app/";
-import VideoScreen from "./app/video";
-import DetailsScreen from "./app/details";
+import HomeScreen from "./app/screens/HomeScreen";
+import VideoScreen from "./app/screens/VideoScreen";
+import DetailsScreen from "./app/screens/DetailsScreen";
 
 SpatialNavigation.configureRemoteControl({
   remoteControlSubscriber: (callback) => {
