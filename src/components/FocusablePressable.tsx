@@ -13,6 +13,7 @@ interface CustomPressableProps extends PressableProps {
   text?: string;
   onSelect: () => void;
   style?: ViewStyle;
+  focusedStyle?: ViewStyle;
   children?: React.ReactNode;
 }
 
@@ -20,6 +21,7 @@ const FocusablePressable = ({
   text,
   onSelect,
   style,
+  focusedStyle,
   children,
   ...props
 }: CustomPressableProps) => {
@@ -30,7 +32,7 @@ const FocusablePressable = ({
           {...props}
           style={[
             styles.watchButton,
-            isFocused && styles.watchButtonFocused,
+            isFocused && (focusedStyle || styles.watchButtonFocused),
             style,
           ]}
           onPress={onSelect}

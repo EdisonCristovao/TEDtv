@@ -9,6 +9,8 @@
     "prebuild": "EXPO_TV=1 expo prebuild --clean"
   },
   "dependencies": {
+    "@bam.tech/react-native-keyevent-expo-config-plugin": "^1.0.52",
+    "@react-navigation/drawer": "^7.3.12",
     "@react-navigation/elements": "^2.2.5",
     "@react-navigation/native": "^7.0.14",
     "@react-navigation/native-stack": "^7.2.0",
@@ -23,10 +25,14 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-native": "npm:react-native-tvos@0.77.1-0",
+    "react-native-drawer-layout": "^4.1.8",
+    "react-native-gesture-handler": "~2.20.2",
     "react-native-keyevent": "^0.3.2",
     "react-native-pixel-perfect": "^1.0.2",
+    "react-native-reanimated": "~3.16.1",
     "react-native-safe-area-context": "4.12.0",
     "react-native-screens": "~4.4.0",
+    "react-native-svg": "15.8.0",
     "react-native-vector-icons": "^10.2.0",
     "react-tv-space-navigation": "^3.6.1"
   },

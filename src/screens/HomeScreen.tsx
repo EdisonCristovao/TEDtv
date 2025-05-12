@@ -11,6 +11,7 @@ import {
   SpatialNavigationVirtualizedList,
   SpatialNavigationVirtualizedListRef,
   DefaultFocus,
+  SpatialNavigationView,
 } from "react-tv-space-navigation";
 import { Direction } from "@bam.tech/lrud";
 import { LinearGradient } from "expo-linear-gradient";
@@ -18,6 +19,8 @@ import { scaledPixels } from "../hooks/useScale";
 // import { scaledPixels } from "@/hooks/useScale";
 // import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
+import Sidebar from "../components/Sidebar";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 interface CardData {
   id: string;
@@ -160,19 +163,23 @@ export default function Home() {
   return (
     <SpatialNavigationRoot
       // isActive={isActive}
-      onDirectionHandledWithoutMovement={() => {}}
+      onDirectionHandledWithoutMovement={() => { }}
+
     >
-      <View style={styles.container}>
-        {renderHeader()}
-        <SpatialNavigationScrollView
-          offsetFromStart={scaledPixels(60)}
-          style={styles.scrollContent}
-        >
-          {renderScrollableRow("Trending Movies", trendingRef)}
-          {renderScrollableRow("Classics", classicsRef)}
-          {renderScrollableRow("Hip and Modern", hipAndModernRef)}
-        </SpatialNavigationScrollView>
-      </View>
+      <SpatialNavigationView direction="horizontal" style={styles.container}>
+        <Sidebar />
+        <View style={styles.content}>
+          {renderHeader()}
+          <SpatialNavigationScrollView
+            offsetFromStart={scaledPixels(60)}
+            style={styles.scrollContent}
+          >
+            {renderScrollableRow("Trending Movies", trendingRef)}
+            {renderScrollableRow("Classics", classicsRef)}
+            {renderScrollableRow("Hip and Modern", hipAndModernRef)}
+          </SpatialNavigationScrollView>
+        </View>
+      </SpatialNavigationView>
     </SpatialNavigationRoot>
   );
 }
@@ -180,6 +187,11 @@ export default function Home() {
 const useGridStyles = function () {
   return StyleSheet.create({
     container: {
+      flex: 1,
+      backgroundColor: "black",
+      flexDirection: "row",
+    },
+    content: {
       flex: 1,
       backgroundColor: "black",
     },
@@ -290,6 +302,9 @@ const useGridStyles = function () {
       height: "70%",
       borderTopLeftRadius: scaledPixels(10),
       borderTopRightRadius: scaledPixels(10),
+    },
+    sidebar: {
+      width: scaledPixels(200),
     },
   });
 };

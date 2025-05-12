@@ -1,19 +1,21 @@
 {
   "expo": {
     "plugins": [
+      "@bam.tech/react-native-keyevent-expo-config-plugin",
       [
         "@react-native-tvos/config-tv",
         {
-          "androidTVBanner": "./assets/images/icon-400x240.png",
+          "androidTVBanner": "./src/assets/images/icon-400x240.png",
           "appleTVImages": {
-            "icon": "./assets/images/icon-1280x768.png",
-            "iconSmall": "./assets/images/icon-400x240.png",
-            "iconSmall2x": "./assets/images/icon-800x480.png",
-            "topShelf": "./assets/images/icon-1920x720.png",
-            "topShelf2x": "./assets/images/icon-3840x1440.png",
-            "topShelfWide": "./assets/images/icon-2320x720.png",
-            "topShelfWide2x": "./assets/images/icon-4640x1440.png"
-          }
+            "icon": "./src/assets/images/icon-1280x768.png",
+            "iconSmall": "./src/assets/images/icon-400x240.png",
+            "iconSmall2x": "./src/assets/images/icon-800x480.png",
+            "topShelf": "./src/assets/images/icon-1920x720.png",
+            "topShelf2x": "./src/assets/images/icon-3840x1440.png",
+            "topShelfWide": "./src/assets/images/icon-2320x720.png",
+            "topShelfWide2x": "./src/assets/images/icon-4640x1440.png"
+          },
+          "isTV": true
         }
       ],
       [
@@ -26,13 +28,13 @@
     ],
     "android": {
       "splash": {
-        "image": "./assets/images/icon-1920x720.png"
+        "image": "./src/assets/images/icon-1920x720.png"
       },
       "package": "com.anonymous.TEDtv"
     },
     "ios": {
       "splash": {
-        "image": "./assets/images/icon-1920x720.png"
+        "image": "./src/assets/images/icon-1920x720.png"
       },
       "bundleIdentifier": "com.anonymous.TEDtv"
     },
