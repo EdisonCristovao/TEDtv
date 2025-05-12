@@ -1,4 +1,3 @@
-import { StyleSheet, Text, View } from "react-native";
 import {
   Directions,
   SpatialNavigation,
@@ -11,6 +10,7 @@ import {
   NavigationContainer,
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 import HomeScreen from "./App";
 import VideoScreen from "./app/video";
 
