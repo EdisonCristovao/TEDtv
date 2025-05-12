@@ -5,14 +5,12 @@ import {
 } from "react-tv-space-navigation";
 import RemoteControlManager from "./app/remote-control/RemoteControlManager";
 import { SupportedKeys } from "./app/remote-control/SupportedKeys";
-import {
-  createStaticNavigation,
-  NavigationContainer,
-} from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import HomeScreen from "./App";
+import HomeScreen from "./app/";
 import VideoScreen from "./app/video";
+import DetailsScreen from "./app/details";
 
 SpatialNavigation.configureRemoteControl({
   remoteControlSubscriber: (callback) => {
@@ -24,7 +22,6 @@ SpatialNavigation.configureRemoteControl({
       [SupportedKeys.Enter]: Directions.ENTER,
       [SupportedKeys.Back]: null,
     };
-
     const remoteControlListener = (keyEvent: SupportedKeys) => {
       callback(mapping[keyEvent]);
     };
@@ -37,21 +34,18 @@ SpatialNavigation.configureRemoteControl({
   },
 });
 
-const RootStack = createNativeStackNavigator({
-  screens: {
-    Home: HomeScreen,
-    Video: VideoScreen,
-  },
-});
-
-const Navigation = createStaticNavigation(RootStack);
-
 export default function App() {
+  const Stack = createNativeStackNavigator();
+
   return (
-    <NavigationContainer>
-      <SpatialNavigationRoot>
-        <Navigation />
-      </SpatialNavigationRoot>
-    </NavigationContainer>
+    <SpatialNavigationRoot>
+      <NavigationContainer>
+        <Stack.Navigator id="RootStack" screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Video" component={VideoScreen} />
+          <Stack.Screen name="Details" component={DetailsScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SpatialNavigationRoot>
   );
 }

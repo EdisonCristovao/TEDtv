@@ -17,6 +17,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { scaledPixels } from "../hooks/useScale";
 // import { scaledPixels } from "@/hooks/useScale";
 // import { LinearGradient } from "expo-linear-gradient";
+import { useNavigation } from "@react-navigation/native";
 
 interface CardData {
   id: string;
@@ -28,7 +29,7 @@ interface CardData {
 
 export default function Home() {
   const styles = useGridStyles();
-  // const router = useRouter();
+  const navigation = useNavigation();
   // const navigation = useNavigation();
   // const { isOpen: isMenuOpen, toggleMenu } = useMenuContext();
   const trendingRef = useRef<SpatialNavigationVirtualizedListRef>(null);
@@ -104,16 +105,12 @@ export default function Home() {
         ({ item, index }: { item: CardData; index: number }) => (
           <SpatialNavigationFocusableView
             onSelect={() => {
-              console.log("onSelect");
-              // router.push({
-              //   pathname: "/details",
-              //   params: {
-              //     title: item.title,
-              //     description: item.description,
-              //     headerImage: item.headerImage,
-              //     movie: item.movie,
-              //   },
-              // });
+              navigation.navigate("Details", {
+                title: item.title,
+                description: item.description,
+                headerImage: item.headerImage,
+                movie: item.movie,
+              });
             }}
             onFocus={() => setFocusedIndex(index)}
           >

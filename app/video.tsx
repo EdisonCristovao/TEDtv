@@ -6,20 +6,18 @@ import { SpatialNavigationView } from "react-tv-space-navigation";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
 import SeekBar from "./SeekBar";
+import { useRoute } from "@react-navigation/native";
 
 const bigBuckBunnySource: VideoSource =
   "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
 
 const { width } = Dimensions.get("window");
 
-export default function PreloadingVideoPlayerScreen() {
-  const player = useVideoPlayer(bigBuckBunnySource, (player) => {
-    player.currentTime = 0;
-    player.timeUpdateEventInterval = 1;
-    player.play();
-  });
+export default function VideoScreen() {
+  const route = useRoute();
+  const { movie } = route.params;
 
-  const add = useVideoPlayer(bigBuckBunnySource, (player) => {
+  const player = useVideoPlayer(movie, (player) => {
     player.currentTime = 0;
     player.timeUpdateEventInterval = 1;
     player.play();
