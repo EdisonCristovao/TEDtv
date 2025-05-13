@@ -14,7 +14,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { scaledPixels } from "../hooks/useScale";
 import { useNavigation } from "@react-navigation/native";
 import Sidebar from "../components/Sidebar";
-import CardTalk from "../components/CardTalk";
+import TalkCard from "../components/TalkCard";
 interface CardData {
   id: string;
   title: string;
@@ -105,7 +105,8 @@ export default function Home() {
               }}
             >
               {moviesData.map((item, index) => (
-                <CardTalk
+                <TalkCard
+                  key={`${item.id}-${index}`}
                   talk={item}
                   onFocus={() => {
                     setFocusedIndex(index);
