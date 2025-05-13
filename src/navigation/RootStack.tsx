@@ -3,27 +3,29 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
 import VideoScreen from "../screens/VideoScreen";
 import DetailsScreen from "../screens/DetailsScreen";
+import SearchScreen from "../screens/SearchScreen";
 import { View, StyleSheet } from "react-native";
 
 const Stack = createNativeStackNavigator();
 
 const RootStack = () => {
   return (
-    <Stack.Navigator id={undefined} screenOptions={{
-      headerShown: true, header: () => {
-        return (
-          <View style={styles.header}>
-
-          </View>
-        )
-      }
-    }}>
+    <Stack.Navigator
+      id={undefined}
+      screenOptions={{
+        headerShown: true,
+        header: () => {
+          return <View style={styles.header}></View>;
+        },
+      }}
+    >
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Video" component={VideoScreen} />
       <Stack.Screen name="Details" component={DetailsScreen} />
+      <Stack.Screen name="Search" component={SearchScreen} />
     </Stack.Navigator>
-  )
-}
+  );
+};
 
 export default RootStack;
 
