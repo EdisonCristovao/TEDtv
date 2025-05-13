@@ -1,21 +1,21 @@
 import { useEvent } from "expo";
 import { useVideoPlayer, VideoView, VideoSource } from "expo-video";
 import { Animated, Dimensions, StyleSheet, View } from "react-native";
-import FocusablePressable from "../components/FocusablePressable";
-import { SpatialNavigationView } from "react-tv-space-navigation";
-import Icon from "react-native-vector-icons/FontAwesome5";
+import { DefaultFocus, SpatialNavigationView } from "react-tv-space-navigation";
 
 import SeekBar from "../components/SeekBar";
-import { useRoute } from "@react-navigation/native";
+import { useRoute, useNavigation } from "@react-navigation/native";
+import IconButton from "../components/IconButton";
 
-const bigBuckBunnySource: VideoSource =
-  "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+// const bigBuckBunnySource: VideoSource =
+//   "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
 
 const { width } = Dimensions.get("window");
 
 export default function VideoScreen() {
   const route = useRoute();
   const { movie } = route.params;
+  const navigation = useNavigation();
 
   const player = useVideoPlayer(movie, (player) => {
     player.currentTime = 0;
@@ -38,9 +38,7 @@ export default function VideoScreen() {
     <View style={styles.contentContainer}>
       <VideoView player={player} style={styles.video} nativeControls={false} />
       <Animated.View style={styles.button}>
-        <FocusablePressable onSelect={() => {}}>
-          <Icon name="arrow-left" size={20} color="white" />
-        </FocusablePressable>
+        <IconButton onSelect={() => navigation.goBack()} name="arrow-left" />
         <SpatialNavigationView
           direction="horizontal"
           style={{
@@ -50,18 +48,18 @@ export default function VideoScreen() {
             gap: 10,
           }}
         >
-          <FocusablePressable
-            onSelect={() => {
-              if (isPlaying) {
-                player.pause();
-              } else {
-                player.play();
-              }
-            }}
-          >
-            <Icon name={isPlaying ? "pause" : "play"} size={20} color="white" />
-          </FocusablePressable>
+          <DefaultFocus>
+            <IconButton
+              onSelect={() => {
+                if (isPlaying) {
+                  return player.pause();
+                }
 
+                return player.play();
+              }}
+              name={isPlaying ? "pause" : "play"}
+            />
+          </DefaultFocus>
           <SeekBar currentTime={currentTime} duration={player.duration} />
         </SpatialNavigationView>
       </Animated.View>

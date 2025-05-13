@@ -1,10 +1,11 @@
 import { StyleSheet, View, Image, Text } from "react-native";
-import { SpatialNavigationRoot } from "react-tv-space-navigation";
+import { DefaultFocus, SpatialNavigationRoot } from "react-tv-space-navigation";
 import { useCallback } from "react";
 import { useIsFocused } from "@react-navigation/native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { scaledPixels } from "../hooks/useScale";
 import FocusablePressable from "../components/FocusablePressable";
+import IconButton from "../components/IconButton";
 
 interface LocalParams extends Record<string, any> {
   title: string;
@@ -35,30 +36,35 @@ export default function DetailsScreen() {
       <View style={styles.container}>
         <Image source={{ uri: headerImage }} style={styles.backgroundImage} />
         <View style={styles.contentContainer}>
-          <View style={styles.topContent}>
-            <Text style={styles.title}>{title}</Text>
-            <Text style={styles.description}>{description}</Text>
-          </View>
-          <View style={styles.bottomContent}>
-            <View style={styles.crewContainer}>
-              <View style={styles.crewMember}>
-                <Text style={styles.crewRole}>Director</Text>
-                <Text style={styles.crewName}>Chris Traganos</Text>
-              </View>
-              <View style={styles.crewMember}>
-                <Text style={styles.crewRole}>Executive Producer</Text>
-                <Text style={styles.crewName}>Gio Laquidara</Text>
-              </View>
-              <View style={styles.crewMember}>
-                <Text style={styles.crewRole}>Star</Text>
-                <Text style={styles.crewName}>Eric Fahsl</Text>
-              </View>
+          <IconButton onSelect={() => navigation.goBack()} name="arrow-left" />
+          <View>
+            <View style={styles.topContent}>
+              <Text style={styles.title}>{title}</Text>
+              <Text style={styles.description}>{description}</Text>
             </View>
-            <FocusablePressable
-              text={"Watch now"}
-              onSelect={navigate}
-              style={{ paddingHorizontal: scaledPixels(30) }}
-            />
+            <View style={styles.bottomContent}>
+              <View style={styles.crewContainer}>
+                <View style={styles.crewMember}>
+                  <Text style={styles.crewRole}>Director</Text>
+                  <Text style={styles.crewName}>Chris Traganos</Text>
+                </View>
+                <View style={styles.crewMember}>
+                  <Text style={styles.crewRole}>Executive Producer</Text>
+                  <Text style={styles.crewName}>Gio Laquidara</Text>
+                </View>
+                <View style={styles.crewMember}>
+                  <Text style={styles.crewRole}>Star</Text>
+                  <Text style={styles.crewName}>Eric Fahsl</Text>
+                </View>
+              </View>
+              <DefaultFocus>
+                <FocusablePressable
+                  text={"Watch now"}
+                  onSelect={navigate}
+                  style={{ paddingHorizontal: scaledPixels(30) }}
+                />
+              </DefaultFocus>
+            </View>
           </View>
         </View>
       </View>
@@ -84,10 +90,10 @@ const useDetailsStyles = function () {
       justifyContent: "space-between",
     },
     topContent: {
-      marginTop: scaledPixels(600),
+      // marginTop: scaledPixels(600),
     },
     bottomContent: {
-      marginBottom: scaledPixels(40),
+      // marginBottom: scaledPixels(40),
     },
     title: {
       fontSize: scaledPixels(48),

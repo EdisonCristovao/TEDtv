@@ -1,8 +1,5 @@
 import { StyleSheet, FlatList, View, Image, Text } from "react-native";
-// import { useNavigation, useRouter } from "expo-router";
 import React, { useCallback, useMemo, useRef, useState } from "react";
-import { DrawerActions, useIsFocused } from "@react-navigation/native";
-// import { useMenuContext } from "../../components/MenuContext";
 import {
   SpatialNavigationFocusableView,
   SpatialNavigationRoot,
@@ -13,14 +10,10 @@ import {
   DefaultFocus,
   SpatialNavigationView,
 } from "react-tv-space-navigation";
-import { Direction } from "@bam.tech/lrud";
 import { LinearGradient } from "expo-linear-gradient";
 import { scaledPixels } from "../hooks/useScale";
-// import { scaledPixels } from "@/hooks/useScale";
-// import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 import Sidebar from "../components/Sidebar";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 interface CardData {
   id: string;
@@ -33,15 +26,10 @@ interface CardData {
 export default function Home() {
   const styles = useGridStyles();
   const navigation = useNavigation();
-  // const navigation = useNavigation();
-  // const { isOpen: isMenuOpen, toggleMenu } = useMenuContext();
   const trendingRef = useRef<SpatialNavigationVirtualizedListRef>(null);
   const classicsRef = useRef<SpatialNavigationVirtualizedListRef>(null);
   const hipAndModernRef = useRef<SpatialNavigationVirtualizedListRef>(null);
   const [focusedIndex, setFocusedIndex] = useState(0);
-  // const isFocused = useIsFocused();
-  // const isActive = isFocused;
-  // && !isMenuOpen;
 
   const focusedItem = useMemo(() => moviesData[focusedIndex], [focusedIndex]);
 
@@ -88,7 +76,7 @@ export default function Home() {
       styles.header,
       styles.gradientLeft,
       styles.gradientBottom,
-    ],
+    ]
   );
 
   // const onDirectionHandledWithoutMovement = useCallback(
@@ -135,7 +123,7 @@ export default function Home() {
             )}
           </SpatialNavigationFocusableView>
         ),
-        [styles],
+        [styles]
       );
 
       return (
@@ -157,14 +145,13 @@ export default function Home() {
         </View>
       );
     },
-    [styles, styles.headerImage, styles.thumbnailText],
+    [styles, styles.headerImage, styles.thumbnailText]
   );
 
   return (
     <SpatialNavigationRoot
       // isActive={isActive}
-      onDirectionHandledWithoutMovement={() => { }}
-
+      onDirectionHandledWithoutMovement={() => {}}
     >
       <SpatialNavigationView direction="horizontal" style={styles.container}>
         <Sidebar />

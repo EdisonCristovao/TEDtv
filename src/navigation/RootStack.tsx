@@ -9,21 +9,21 @@ const Stack = createNativeStackNavigator();
 
 const RootStack = () => {
   return (
-    <Stack.Navigator id={undefined} screenOptions={{
-      headerShown: true, header: () => {
-        return (
-          <View style={styles.header}>
-
-          </View>
-        )
-      }
-    }}>
+    <Stack.Navigator
+      id={undefined}
+      screenOptions={{
+        headerShown: true,
+        header: () => {
+          return <View style={styles.header}></View>;
+        },
+      }}
+    >
       <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Video" component={VideoScreen} />
       <Stack.Screen name="Details" component={DetailsScreen} />
+      <Stack.Screen name="Video" component={VideoScreen} />
     </Stack.Navigator>
-  )
-}
+  );
+};
 
 export default RootStack;
 
