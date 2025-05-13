@@ -20,9 +20,9 @@ const RootStack = () => {
       }}
     >
       <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Video" component={VideoScreen} />
       <Stack.Screen name="Details" component={DetailsScreen} />
       <Stack.Screen name="Search" component={SearchScreen} />
+      <Stack.Screen name="Video" component={VideoScreen} />
     </Stack.Navigator>
   );
 };
