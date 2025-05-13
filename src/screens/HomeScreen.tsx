@@ -14,7 +14,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { scaledPixels } from "../hooks/useScale";
 import { useNavigation } from "@react-navigation/native";
 import Sidebar from "../components/Sidebar";
-
+import CardTalk from "../components/CardTalk";
 interface CardData {
   id: string;
   title: string;
@@ -94,7 +94,8 @@ export default function Home() {
     (title: string, ref: React.RefObject<FlatList>) => {
       const renderItem = useCallback(
         ({ item, index }: { item: CardData; index: number }) => (
-          <SpatialNavigationFocusableView
+          <CardTalk
+            talk={item}
             onSelect={() => {
               navigation.navigate("Details", {
                 title: item.title,
@@ -103,25 +104,7 @@ export default function Home() {
                 movie: item.movie,
               });
             }}
-            onFocus={() => setFocusedIndex(index)}
-          >
-            {({ isFocused }) => (
-              <View
-                style={[
-                  styles.highlightThumbnail,
-                  isFocused && styles.highlightThumbnailFocused,
-                ]}
-              >
-                <Image
-                  source={{ uri: item.headerImage }}
-                  style={styles.headerImage}
-                />
-                <View style={styles.thumbnailTextContainer}>
-                  <Text style={styles.thumbnailText}>{item.title}</Text>
-                </View>
-              </View>
-            )}
-          </SpatialNavigationFocusableView>
+          />
         ),
         [styles]
       );
@@ -190,7 +173,7 @@ const useGridStyles = function () {
       color: "#fff",
       fontSize: scaledPixels(34),
       fontWeight: "bold",
-      marginBottom: scaledPixels(10),
+      marginBottom: scaledPixels(40),
       marginTop: scaledPixels(15),
       textShadowColor: "rgba(0, 0, 0, 0.75)",
       textShadowOffset: { width: -1, height: 1 },
@@ -241,7 +224,6 @@ const useGridStyles = function () {
     },
     highlightsContainer: {
       padding: scaledPixels(10),
-      height: scaledPixels(360),
     },
     thumbnailPlaceholder: {
       backgroundColor: "rgba(255, 255, 255, 0.2)",
