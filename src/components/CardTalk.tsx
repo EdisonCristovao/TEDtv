@@ -3,9 +3,9 @@ import { View, Image, Text, StyleSheet } from "react-native";
 import { SpatialNavigationFocusableView } from "react-tv-space-navigation";
 import { scaledPixels } from "../hooks/useScale";
 import Typography from "./Typography";
-export default function CardTalk({ talk, onSelect }) {
+export default function CardTalk({ talk, onSelect, onFocus }) {
   return (
-    <SpatialNavigationFocusableView onSelect={onSelect}>
+    <SpatialNavigationFocusableView onSelect={onSelect} onFocus={onFocus}>
       {({ isFocused }) => (
         <View style={styles.container}>
           <View
@@ -20,11 +20,14 @@ export default function CardTalk({ talk, onSelect }) {
             />
           </View>
 
+          <Typography variant="body1" color="grey" fontWeight="bold">
+            {talk.topic.toUpperCase()}
+          </Typography>
           <Typography variant="h2" color="#fff">
             {talk.title}
           </Typography>
           <Typography variant="body1" color="grey">
-            Edison Cristovao
+            {talk.talker}
           </Typography>
         </View>
       )}
@@ -35,10 +38,11 @@ export default function CardTalk({ talk, onSelect }) {
 const styles = StyleSheet.create({
   container: {
     width: scaledPixels(400),
-    gap: scaledPixels(8),
+    gap: scaledPixels(6),
   },
   highlightThumbnail: {
     height: scaledPixels(240),
+    marginBottom: scaledPixels(4),
   },
   highlightThumbnailFocused: {
     borderColor: "#fff",

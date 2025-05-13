@@ -8,6 +8,18 @@ interface TypographyProps {
   children: React.ReactNode;
   style?: object;
   color?: string;
+  fontWeight?:
+    | "normal"
+    | "bold"
+    | "100"
+    | "200"
+    | "300"
+    | "400"
+    | "500"
+    | "600"
+    | "700"
+    | "800"
+    | "900";
 }
 
 const Typography: React.FC<TypographyProps> = ({
@@ -15,6 +27,7 @@ const Typography: React.FC<TypographyProps> = ({
   children,
   style,
   color = "#000000",
+  fontWeight,
 }) => {
   const getStyles = (): object => {
     switch (variant) {
@@ -33,7 +46,11 @@ const Typography: React.FC<TypographyProps> = ({
     }
   };
 
-  return <Text style={[getStyles(), { color }, style]}>{children}</Text>;
+  return (
+    <Text style={[getStyles(), { color }, fontWeight && { fontWeight }, style]}>
+      {children}
+    </Text>
+  );
 };
 
 const styles = StyleSheet.create({
