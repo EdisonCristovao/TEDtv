@@ -1,3 +1,5 @@
+import { NavigationProp } from "@react-navigation/native";
+
 export type RootStackParamList = {
   Home: undefined;
   Details: {
@@ -8,3 +10,5 @@ export type RootStackParamList = {
   };
   // Add other screens as needed
 };
+
+export type NavigationProps = NavigationProp<RootStackParamList>;

@@ -10,14 +10,13 @@ import {
   TextInput,
 } from "react-native";
 import { MOCK_SEARCH_RESULTS } from "../mock/search";
-import { useNavigation, NavigationProp } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import HeaderTitle from "../components/HeaderTitle";
 import TedLogo from "../components/TedLogo";
 import { scaledPixels } from "../hooks/useScale";
 import { MaterialIcons } from "@expo/vector-icons";
-import { RootStackParamList } from "../navigation/types";
+import { NavigationProps } from "../navigation/types";
 // Create a typed navigation hook
-type NavigationProps = NavigationProp<RootStackParamList>;
 
 const SearchScreen = () => {
   const navigation = useNavigation<NavigationProps>();

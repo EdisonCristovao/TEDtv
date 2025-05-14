@@ -1,22 +1,21 @@
 import { StyleSheet, FlatList, View, Image, Text } from "react-native";
 import React, { useCallback, useMemo, useRef, useState } from "react";
 import {
-  SpatialNavigationFocusableView,
   SpatialNavigationRoot,
   SpatialNavigationScrollView,
-  SpatialNavigationNode,
-  SpatialNavigationVirtualizedList,
-  SpatialNavigationVirtualizedListRef,
-  DefaultFocus,
   SpatialNavigationView,
   Directions,
 } from "react-tv-space-navigation";
 import { LinearGradient } from "expo-linear-gradient";
 import { scaledPixels } from "../hooks/useScale";
-import { DrawerActions, useIsFocused, useNavigation } from "@react-navigation/native";
-import Sidebar from "../components/Sidebar";
+import {
+  DrawerActions,
+  useIsFocused,
+  useNavigation,
+} from "@react-navigation/native";
 import TalkCard from "../components/TalkCard";
 import { useMenuContext } from "../contexts/MenuContext";
+import { NavigationProps } from "../navigation/types";
 interface CardData {
   id: string;
   title: string;
@@ -26,13 +25,9 @@ interface CardData {
 }
 
 export default function HomeScreen() {
-  const trendingRef = useRef<SpatialNavigationVirtualizedListRef>(null);
-  const classicsRef = useRef<SpatialNavigationVirtualizedListRef>(null);
-  const hipAndModernRef = useRef<SpatialNavigationVirtualizedListRef>(null);
-
   const [focusedIndex, setFocusedIndex] = useState(0);
 
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProps>();
   const { isOpen: isMenuOpen, toggleMenu } = useMenuContext();
   const isFocused = useIsFocused();
 
@@ -87,7 +82,7 @@ export default function HomeScreen() {
   );
 
   const renderScrollableRow = useCallback(
-    (title: string, ref: React.RefObject<FlatList>) => {
+    (title: string) => {
       return (
         <View style={styles.highlightsContainer}>
           <Text style={styles.highlightsTitle}>{title}</Text>
@@ -132,7 +127,7 @@ export default function HomeScreen() {
         toggleMenu(true);
       }
     },
-    [toggleMenu, focusedIndex, navigation],
+    [toggleMenu, focusedIndex, navigation]
   );
 
   return (
@@ -146,9 +141,9 @@ export default function HomeScreen() {
           offsetFromStart={scaledPixels(60)}
           style={styles.scrollContent}
         >
-          {renderScrollableRow("Trending Movies", trendingRef)}
-          {renderScrollableRow("Classics", classicsRef)}
-          {renderScrollableRow("Hip and Modern", hipAndModernRef)}
+          {renderScrollableRow("Trending Movies")}
+          {renderScrollableRow("Classics")}
+          {renderScrollableRow("Hip and Modern")}
         </SpatialNavigationScrollView>
       </View>
     </SpatialNavigationRoot>
