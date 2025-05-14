@@ -9,12 +9,14 @@ import {
   SpatialNavigationVirtualizedListRef,
   DefaultFocus,
   SpatialNavigationView,
+  Directions,
 } from "react-tv-space-navigation";
 import { LinearGradient } from "expo-linear-gradient";
 import { scaledPixels } from "../hooks/useScale";
-import { useNavigation } from "@react-navigation/native";
+import { DrawerActions, useIsFocused, useNavigation } from "@react-navigation/native";
 import Sidebar from "../components/Sidebar";
 import TalkCard from "../components/TalkCard";
+import { useMenuContext } from "../contexts/MenuContext";
 interface CardData {
   id: string;
   title: string;
@@ -24,11 +26,17 @@ interface CardData {
 }
 
 export default function HomeScreen() {
-  const navigation = useNavigation();
   const trendingRef = useRef<SpatialNavigationVirtualizedListRef>(null);
   const classicsRef = useRef<SpatialNavigationVirtualizedListRef>(null);
   const hipAndModernRef = useRef<SpatialNavigationVirtualizedListRef>(null);
+
   const [focusedIndex, setFocusedIndex] = useState(0);
+
+  const navigation = useNavigation();
+  const { isOpen: isMenuOpen, toggleMenu } = useMenuContext();
+  const isFocused = useIsFocused();
+
+  const isActive = isFocused && !isMenuOpen;
 
   const focusedItem = useMemo(() => moviesData[focusedIndex], [focusedIndex]);
 
@@ -78,17 +86,6 @@ export default function HomeScreen() {
     ]
   );
 
-  // const onDirectionHandledWithoutMovement = useCallback(
-  //   (movement: Direction) => {
-  //     console.log("Direction " + movement);
-  //     if (movement === "left" && focusedIndex === 0) {
-  //       navigation.dispatch(DrawerActions.openDrawer());
-  //       toggleMenu(true);
-  //     }
-  //   },
-  //   [toggleMenu, focusedIndex, navigation]
-  // );
-
   const renderScrollableRow = useCallback(
     (title: string, ref: React.RefObject<FlatList>) => {
       return (
@@ -128,10 +125,22 @@ export default function HomeScreen() {
     [styles, styles.headerImage, styles.thumbnailText]
   );
 
+  const onDirectionHandledWithoutMovement = useCallback(
+    (movement: Directions) => {
+      if (movement === "left" && focusedIndex === 0) {
+        navigation.dispatch(DrawerActions.openDrawer());
+        toggleMenu(true);
+      }
+    },
+    [toggleMenu, focusedIndex, navigation],
+  );
+
   return (
-    <View style={styles.container}>
-      <Sidebar />
-      <View style={styles.content}>
+    <SpatialNavigationRoot
+      isActive={isActive}
+      onDirectionHandledWithoutMovement={onDirectionHandledWithoutMovement}
+    >
+      <View style={styles.container}>
         {renderHeader()}
         <SpatialNavigationScrollView
           offsetFromStart={scaledPixels(60)}
@@ -142,17 +151,12 @@ export default function HomeScreen() {
           {renderScrollableRow("Hip and Modern", hipAndModernRef)}
         </SpatialNavigationScrollView>
       </View>
-    </View>
+    </SpatialNavigationRoot>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "black",
-    flexDirection: "row",
-  },
-  content: {
     flex: 1,
     backgroundColor: "black",
   },

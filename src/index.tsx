@@ -4,6 +4,7 @@ import { SupportedKeys } from "./remote-control/SupportedKeys";
 
 import { NavigationContainer } from "@react-navigation/native";
 import RootStack from "./navigation/RootStack";
+import { MenuProvider } from "./contexts/MenuContext";
 
 SpatialNavigation.configureRemoteControl({
   remoteControlSubscriber: (callback) => {
@@ -32,10 +33,10 @@ SpatialNavigation.configureRemoteControl({
 
 export default function App() {
   return (
-    <SpatialNavigationRoot>
-      <NavigationContainer>
+    <MenuProvider>
+      <SpatialNavigationRoot>
         <RootStack />
-      </NavigationContainer>
-    </SpatialNavigationRoot>
+      </SpatialNavigationRoot>
+    </MenuProvider>
   );
 }

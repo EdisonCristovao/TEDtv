@@ -1,15 +1,22 @@
 
 import { StyleSheet, Text, View } from "react-native";
 import { scaledPixels } from "../hooks/useScale";
-import { useDrawerStatus } from "@react-navigation/drawer";
+import { DrawerContentScrollView, DrawerItem, DrawerItemList, DrawerContentComponentProps } from "@react-navigation/drawer";
+import { drawerItems } from "./Sidebar";
+import FocusablePressable from "./FocusablePressable";
+import { DefaultFocus, SpatialNavigationFocusableView } from "react-tv-space-navigation";
+import DrawerContentItem from "./DrawerContentItem";
+import { LinearGradient } from "expo-linear-gradient";
 
 const DrawerContent = () => {
-  const status = useDrawerStatus();
-
-  console.log(status);
-
   return <View style={styles.container}>
-    <Text>Drawer content</Text>
+    <LinearGradient
+      colors={["#000000", "transparent"]}
+      locations={[0.15, 1]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 0 }}
+      style={styles.gradient}
+    />
   </View>;
 };
 
@@ -18,7 +25,23 @@ export default DrawerContent;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "black",
-    paddingLeft: scaledPixels(32),
+    backgroundColor: "transparent",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    justifyContent: "space-between",
+    height: "100%",
+    paddingVertical: scaledPixels(50),
+    paddingRight: scaledPixels(20),
   },
+  menuItemsContainer: {
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "flex-start",
+    gap: scaledPixels(50),
+    paddingTop: scaledPixels(0),
+  },
+  gradient: {
+    ...StyleSheet.absoluteFillObject,
+    width: "100%",
+  }
 });
