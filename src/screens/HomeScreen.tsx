@@ -129,7 +129,7 @@ export default function HomeScreen() {
   );
 
   return (
-    <SpatialNavigationView direction="horizontal" style={styles.container}>
+    <View style={styles.container}>
       <Sidebar />
       <View style={styles.content}>
         {renderHeader()}
@@ -142,7 +142,7 @@ export default function HomeScreen() {
           {renderScrollableRow("Hip and Modern", hipAndModernRef)}
         </SpatialNavigationScrollView>
       </View>
-    </SpatialNavigationView>
+    </View>
   );
 }
 

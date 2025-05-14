@@ -5,7 +5,7 @@ import VideoScreen from "../screens/VideoScreen";
 import DetailsScreen from "../screens/DetailsScreen";
 import SearchScreen from "../screens/SearchScreen";
 import { View, StyleSheet } from "react-native";
-
+import DrawerStack from "./DrawerStack";
 const Stack = createNativeStackNavigator();
 
 const RootStack = () => {
@@ -19,7 +19,7 @@ const RootStack = () => {
         },
       }}
     >
-      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="DrawerStack" component={DrawerStack} />
       <Stack.Screen name="Details" component={DetailsScreen} />
       <Stack.Screen name="Search" component={SearchScreen} />
       <Stack.Screen name="Video" component={VideoScreen} />
