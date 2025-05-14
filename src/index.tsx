@@ -3,7 +3,8 @@ import RemoteControlManager from "./remote-control/RemoteControlManager";
 import { SupportedKeys } from "./remote-control/SupportedKeys";
 
 import { NavigationContainer } from "@react-navigation/native";
-import DrawerStack from "./navigation/DrawerStack";
+import RootStack from "./navigation/RootStack";
+import { MenuProvider } from "./contexts/MenuContext";
 
 SpatialNavigation.configureRemoteControl({
   remoteControlSubscriber: (callback) => {
@@ -32,10 +33,10 @@ SpatialNavigation.configureRemoteControl({
 
 export default function App() {
   return (
-    <SpatialNavigationRoot>
-      <NavigationContainer>
-        <DrawerStack />
-      </NavigationContainer>
-    </SpatialNavigationRoot>
+    <MenuProvider>
+      <SpatialNavigationRoot>
+        <RootStack />
+      </SpatialNavigationRoot>
+    </MenuProvider>
   );
 }

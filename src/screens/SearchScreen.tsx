@@ -13,7 +13,7 @@ import {
 import { MOCK_SEARCH_RESULTS } from "../mock/search";
 import { useNavigation } from "@react-navigation/native";
 
-const App = () => {
+const SearchScreen = () => {
   const navigation = useNavigation();
   // State to track focused elements
   const [focusedVideo, setFocusedVideo] = useState(null);
@@ -252,4 +252,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default SearchScreen;

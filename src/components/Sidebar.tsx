@@ -1,157 +1,136 @@
-import { View, Text, StyleSheet, Button, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  Pressable,
+  Animated,
+} from "react-native";
 import SettingsIcon from "./svg/SettingsIcon";
 import UserIcon from "./svg/UserIcon";
 import SearchIcon from "./svg/SearchIcon";
 import HomeIcon from "./svg/HomeIcon";
 import MyLibraryIcon from "./svg/MyLibraryIcon";
 import PodcastsIcon from "./svg/PodcastsIcon";
-import {
-  SpatialNavigationFocusableView,
-  SpatialNavigationView,
-} from "react-tv-space-navigation";
-import FocusablePressable from "./FocusablePressable";
-import { useDrawerStatus } from "@react-navigation/drawer";
-import { DrawerActions, useNavigation } from "@react-navigation/native";
-import { useEffect, useState } from "react";
+import { DefaultFocus, SpatialNavigationRoot } from "react-tv-space-navigation";
+import { useEffect, useRef } from "react";
 import { scaledPixels } from "../hooks/useScale";
+import { useMenuContext } from "../contexts/MenuContext";
+import { ROUTES } from "../constants";
+import { useNavigation } from "@react-navigation/native";
+import SidebarItem from "./SidebarItem";
+
+const COLLAPSED_WIDTH = 90;
+const EXPANDED_WIDTH = 252;
+
+export const drawerItems = [
+  {
+    Icon: ({ color }: { color: string }) => <UserIcon color={color} />,
+    route: ROUTES.Profile,
+    label: "Profile",
+  },
+  {
+    Icon: ({ color }: { color: string }) => <SearchIcon color={color} />,
+    route: ROUTES.Search,
+    label: "Search",
+  },
+  {
+    Icon: ({ color }: { color: string }) => <HomeIcon color={color} />,
+    route: ROUTES.Home,
+    label: "Home",
+  },
+  {
+    Icon: ({ color }: { color: string }) => <MyLibraryIcon color={color} />,
+    route: ROUTES.MyLibrary,
+    label: "My Library",
+  },
+  {
+    Icon: ({ color }: { color: string }) => <PodcastsIcon color={color} />,
+    route: ROUTES.Podcasts,
+    label: "Podcasts",
+  },
+  {
+    Icon: ({ color }: { color: string }) => <SettingsIcon color={color} />,
+    route: ROUTES.Settings,
+    label: "Settings",
+  },
+];
 
 export default function Sidebar() {
+  const { isOpen: isMenuOpen, toggleMenu } = useMenuContext();
+  const widthAnim = useRef(new Animated.Value(COLLAPSED_WIDTH)).current;
   const navigation = useNavigation();
-  const drawerStatus = useDrawerStatus();
-  const [focused, setFocused] = useState("home");
+
+  const handleMenuItemSelect = (item: { route: string; label: string }) => {
+    toggleMenu(false);
+    navigation.navigate(item.route as never);
+  };
 
   useEffect(() => {
-    if (drawerStatus === "open") {
-      navigation.dispatch(DrawerActions.closeDrawer());
-    }
-  }, [drawerStatus, navigation]);
-
-  const handleFocus = () => {
-    navigation.dispatch(DrawerActions.openDrawer());
-  };
-
-  const handleBlur = () => {
-    navigation.dispatch(DrawerActions.closeDrawer());
-  };
-
-  const getIconStyle = (focused: boolean) => {
-    return {
-      ...styles.icon,
-      ...(focused ? styles.focusedIcon : styles.notFocusedIcon),
+    const toggleDrawer = () => {
+      Animated.timing(widthAnim, {
+        toValue: isMenuOpen ? EXPANDED_WIDTH : COLLAPSED_WIDTH,
+        duration: 0,
+        useNativeDriver: false,
+      }).start();
     };
-  };
+
+    toggleDrawer();
+  }, [isMenuOpen]);
 
   return (
-    <SpatialNavigationFocusableView
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-      style={styles.container}
-    >
-      <View style={styles.header}>
-        <FocusablePressable
-          onFocus={() => {
-            setFocused("user");
-          }}
-          style={styles.icon}
-          focusedStyle={getIconStyle(focused === "user")}
-          onSelect={() => {}}
-        >
-          <UserIcon color={focused === "user" ? "white" : "#616161"} />
-        </FocusablePressable>
-        <View style={styles.icons}>
-          <FocusablePressable
-            onFocus={() => {
-              setFocused("search");
-            }}
-            style={styles.icon}
-            focusedStyle={getIconStyle(focused === "search")}
-            onSelect={() => {
-              navigation.navigate("Search" as never);
-            }}
-          >
-            <SearchIcon color={focused === "search" ? "white" : "#616161"} />
-          </FocusablePressable>
-          <FocusablePressable
-            onFocus={() => {
-              setFocused("home");
-            }}
-            style={styles.icon}
-            focusedStyle={getIconStyle(focused === "home")}
-            onSelect={() => {}}
-          >
-            <HomeIcon color={focused === "home" ? "white" : "#616161"} />
-          </FocusablePressable>
-          <FocusablePressable
-            onFocus={() => {
-              setFocused("myLibrary");
-            }}
-            style={styles.icon}
-            focusedStyle={getIconStyle(focused === "myLibrary")}
-            onSelect={() => {}}
-          >
-            <MyLibraryIcon
-              color={focused === "myLibrary" ? "white" : "#616161"}
+    <SpatialNavigationRoot isActive={isMenuOpen}>
+      <Animated.View style={[styles.container, { width: widthAnim }]}>
+        <SidebarItem
+          sidebarOpen={isMenuOpen}
+          item={drawerItems[0]}
+          handleMenuItemSelect={handleMenuItemSelect}
+        />
+        <View style={styles.menuItemsContainer}>
+          <SidebarItem
+            sidebarOpen={isMenuOpen}
+            item={drawerItems[1]}
+            handleMenuItemSelect={handleMenuItemSelect}
+          />
+          <DefaultFocus>
+            <SidebarItem
+              sidebarOpen={isMenuOpen}
+              item={drawerItems[2]}
+              handleMenuItemSelect={handleMenuItemSelect}
             />
-          </FocusablePressable>
-          <FocusablePressable
-            onFocus={() => {
-              setFocused("podcasts");
-            }}
-            style={styles.icon}
-            focusedStyle={getIconStyle(focused === "podcasts")}
-            onSelect={() => {}}
-          >
-            <PodcastsIcon
-              color={focused === "podcasts" ? "white" : "#616161"}
-            />
-          </FocusablePressable>
+          </DefaultFocus>
+          <SidebarItem
+            sidebarOpen={isMenuOpen}
+            item={drawerItems[3]}
+            handleMenuItemSelect={handleMenuItemSelect}
+          />
+          <SidebarItem
+            sidebarOpen={isMenuOpen}
+            item={drawerItems[4]}
+            handleMenuItemSelect={handleMenuItemSelect}
+          />
         </View>
-        <FocusablePressable
-          onFocus={() => {
-            setFocused("settings");
-          }}
-          style={styles.icon}
-          focusedStyle={getIconStyle(focused === "settings")}
-          onSelect={() => {}}
-        >
-          <SettingsIcon color={focused === "settings" ? "white" : "#616161"} />
-        </FocusablePressable>
-      </View>
-    </SpatialNavigationFocusableView>
+        <SidebarItem
+          sidebarOpen={isMenuOpen}
+          item={drawerItems[5]}
+          handleMenuItemSelect={handleMenuItemSelect}
+        />
+      </Animated.View>
+    </SpatialNavigationRoot>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingLeft: scaledPixels(32),
     backgroundColor: "black",
-    justifyContent: "center",
-  },
-  header: {
-    backgroundColor: "transparent",
     flexDirection: "column",
     justifyContent: "space-between",
-    alignItems: "center",
     height: "100%",
     paddingVertical: scaledPixels(50),
-    paddingHorizontal: scaledPixels(20),
-    marginRight: scaledPixels(42),
+    paddingLeft: scaledPixels(20),
   },
-  icons: {
+  menuItemsContainer: {
     flexDirection: "column",
-    alignItems: "center",
-    gap: scaledPixels(40),
-    marginBottom: scaledPixels(20),
-  },
-  icon: {
-    borderRadius: scaledPixels(0),
-    paddingLeft: scaledPixels(12),
-    borderLeftWidth: scaledPixels(4),
-  },
-  focusedIcon: {
-    borderLeftColor: "red",
-  },
-  notFocusedIcon: {
-    borderLeftColor: "transparent",
+    gap: scaledPixels(32),
   },
 });

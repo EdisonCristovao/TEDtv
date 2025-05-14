@@ -3,7 +3,7 @@ import { View, Image, Text, StyleSheet } from "react-native";
 import { SpatialNavigationFocusableView } from "react-tv-space-navigation";
 import { scaledPixels } from "../hooks/useScale";
 import Typography from "./Typography";
-export default function CardTalk({ talk, onSelect, onFocus }) {
+export default function TalkCard({ talk, onSelect, onFocus }) {
   return (
     <SpatialNavigationFocusableView onSelect={onSelect} onFocus={onFocus}>
       {({ isFocused }) => (

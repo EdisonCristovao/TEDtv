@@ -1,29 +1,33 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import HomeScreen from "../screens/HomeScreen";
+import { NavigationContainer, useNavigationContainerRef } from "@react-navigation/native";
 import VideoScreen from "../screens/VideoScreen";
 import DetailsScreen from "../screens/DetailsScreen";
 import SearchScreen from "../screens/SearchScreen";
 import { View, StyleSheet } from "react-native";
+import DrawerStack from "./DrawerStack";
+import PodcastsScreen from "../screens/PodcastsScreen";
 
 const Stack = createNativeStackNavigator();
 
 const RootStack = () => {
+  const navigationRef = useNavigationContainerRef();
   return (
-    <Stack.Navigator
-      id={undefined}
-      screenOptions={{
-        headerShown: true,
-        header: () => {
-          return <View style={styles.header}></View>;
-        },
-      }}
-    >
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Details" component={DetailsScreen} />
-      <Stack.Screen name="Search" component={SearchScreen} />
-      <Stack.Screen name="Video" component={VideoScreen} />
-    </Stack.Navigator>
+    <NavigationContainer ref={navigationRef}>
+      <Stack.Navigator
+        id={undefined}
+        screenOptions={{
+          headerShown: false,
+        }}
+        initialRouteName="DrawerStack"
+      >
+        <Stack.Screen name="DrawerStack" component={DrawerStack} initialParams={{ navigationRef }} />
+        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="Search" component={SearchScreen} />
+        <Stack.Screen name="Video" component={VideoScreen} />
+        <Stack.Screen name="Podcasts" component={PodcastsScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 

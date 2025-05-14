@@ -9,12 +9,14 @@ import {
   SpatialNavigationVirtualizedListRef,
   DefaultFocus,
   SpatialNavigationView,
+  Directions,
 } from "react-tv-space-navigation";
 import { LinearGradient } from "expo-linear-gradient";
 import { scaledPixels } from "../hooks/useScale";
-import { useNavigation } from "@react-navigation/native";
+import { DrawerActions, useIsFocused, useNavigation } from "@react-navigation/native";
 import Sidebar from "../components/Sidebar";
-import CardTalk from "../components/CardTalk";
+import TalkCard from "../components/TalkCard";
+import { useMenuContext } from "../contexts/MenuContext";
 interface CardData {
   id: string;
   title: string;
@@ -23,13 +25,18 @@ interface CardData {
   movie: string;
 }
 
-export default function Home() {
-  const styles = useGridStyles();
-  const navigation = useNavigation();
+export default function HomeScreen() {
   const trendingRef = useRef<SpatialNavigationVirtualizedListRef>(null);
   const classicsRef = useRef<SpatialNavigationVirtualizedListRef>(null);
   const hipAndModernRef = useRef<SpatialNavigationVirtualizedListRef>(null);
+
   const [focusedIndex, setFocusedIndex] = useState(0);
+
+  const navigation = useNavigation();
+  const { isOpen: isMenuOpen, toggleMenu } = useMenuContext();
+  const isFocused = useIsFocused();
+
+  const isActive = isFocused && !isMenuOpen;
 
   const focusedItem = useMemo(() => moviesData[focusedIndex], [focusedIndex]);
 
@@ -79,17 +86,6 @@ export default function Home() {
     ]
   );
 
-  // const onDirectionHandledWithoutMovement = useCallback(
-  //   (movement: Direction) => {
-  //     console.log("Direction " + movement);
-  //     if (movement === "left" && focusedIndex === 0) {
-  //       navigation.dispatch(DrawerActions.openDrawer());
-  //       toggleMenu(true);
-  //     }
-  //   },
-  //   [toggleMenu, focusedIndex, navigation]
-  // );
-
   const renderScrollableRow = useCallback(
     (title: string, ref: React.RefObject<FlatList>) => {
       return (
@@ -105,7 +101,8 @@ export default function Home() {
               }}
             >
               {moviesData.map((item, index) => (
-                <CardTalk
+                <TalkCard
+                  key={`${item.id}-${index}`}
                   talk={item}
                   onFocus={() => {
                     setFocusedIndex(index);
@@ -128,10 +125,22 @@ export default function Home() {
     [styles, styles.headerImage, styles.thumbnailText]
   );
 
+  const onDirectionHandledWithoutMovement = useCallback(
+    (movement: Directions) => {
+      if (movement === "left" && focusedIndex === 0) {
+        navigation.dispatch(DrawerActions.openDrawer());
+        toggleMenu(true);
+      }
+    },
+    [toggleMenu, focusedIndex, navigation],
+  );
+
   return (
-    <View style={styles.container}>
-      <Sidebar />
-      <View style={styles.content}>
+    <SpatialNavigationRoot
+      isActive={isActive}
+      onDirectionHandledWithoutMovement={onDirectionHandledWithoutMovement}
+    >
+      <View style={styles.container}>
         {renderHeader()}
         <SpatialNavigationScrollView
           offsetFromStart={scaledPixels(60)}
@@ -142,134 +151,127 @@ export default function Home() {
           {renderScrollableRow("Hip and Modern", hipAndModernRef)}
         </SpatialNavigationScrollView>
       </View>
-    </View>
+    </SpatialNavigationRoot>
   );
 }
 
-const useGridStyles = function () {
-  return StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: "black",
-      flexDirection: "row",
-    },
-    content: {
-      flex: 1,
-      backgroundColor: "black",
-    },
-    scrollContent: {
-      flex: 1,
-      marginVertical: scaledPixels(48),
-      paddingHorizontal: scaledPixels(20),
-    },
-    highlightsTitle: {
-      color: "#fff",
-      fontSize: scaledPixels(34),
-      fontWeight: "bold",
-      marginBottom: scaledPixels(20),
-      marginTop: scaledPixels(15),
-      textShadowColor: "rgba(0, 0, 0, 0.75)",
-      textShadowOffset: { width: -1, height: 1 },
-      textShadowRadius: 10,
-    },
-    headerTitle: {
-      color: "#fff",
-      fontSize: scaledPixels(48),
-      fontWeight: "bold",
-      textShadowColor: "rgba(0, 0, 0, 0.75)",
-      textShadowOffset: { width: -1, height: 1 },
-      textShadowRadius: 10,
-    },
-    headerDescription: {
-      color: "#fff",
-      fontSize: scaledPixels(24),
-      fontWeight: "500",
-      paddingTop: scaledPixels(16),
-      textShadowColor: "rgba(0, 0, 0, 0.75)",
-      textShadowOffset: { width: -1, height: 1 },
-      textShadowRadius: 10,
-    },
-    thumbnailTextContainer: {
-      position: "absolute",
-      bottom: scaledPixels(10),
-      left: scaledPixels(10),
-      right: scaledPixels(10),
-      backgroundColor: "rgba(0, 0, 0, 0.5)",
-      padding: scaledPixels(5),
-      borderRadius: scaledPixels(3),
-    },
-    thumbnailText: {
-      color: "#fff",
-      fontSize: scaledPixels(18),
-      fontWeight: "bold",
-      textAlign: "center",
-    },
-    highlightThumbnail: {
-      width: scaledPixels(400),
-      height: scaledPixels(240),
-      marginRight: scaledPixels(10),
-      backgroundColor: "rgba(255, 255, 255, 0.1)",
-      borderRadius: scaledPixels(5),
-    },
-    highlightThumbnailFocused: {
-      borderColor: "#fff",
-      borderWidth: scaledPixels(4),
-    },
-    highlightsContainer: {
-      padding: scaledPixels(10),
-    },
-    thumbnailPlaceholder: {
-      backgroundColor: "rgba(255, 255, 255, 0.2)",
-      width: "100%",
-      height: "100%",
-      borderRadius: scaledPixels(5),
-    },
-    header: {
-      width: "100%",
-      height: scaledPixels(400),
-      position: "relative",
-    },
-    headerImage: {
-      width: "100%",
-      height: "100%",
-      resizeMode: "cover",
-    },
-    gradientLeft: {
-      position: "absolute",
-      left: 0,
-      right: 0,
-      top: 0,
-      height: "100%",
-    },
-    gradientBottom: {
-      position: "absolute",
-      left: 0,
-      right: 0,
-      bottom: 0,
-      height: "15%",
-    },
-    headerTextContainer: {
-      position: "absolute",
-      left: scaledPixels(40), // Add left padding
-      top: 0,
-      bottom: 0,
-      justifyContent: "center", // Center vertically
-      width: "50%", // Limit width to prevent overlap with right side
-    },
-    highlightsList: {
-      paddingLeft: scaledPixels(20),
-    },
-    cardImage: {
-      width: "100%",
-      height: "70%",
-      borderTopLeftRadius: scaledPixels(10),
-      borderTopRightRadius: scaledPixels(10),
-    },
-    sidebar: {
-      width: scaledPixels(200),
-    },
-  });
-};
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "black",
+  },
+  scrollContent: {
+    flex: 1,
+    marginVertical: scaledPixels(48),
+    paddingHorizontal: scaledPixels(20),
+  },
+  highlightsTitle: {
+    color: "#fff",
+    fontSize: scaledPixels(34),
+    fontWeight: "bold",
+    marginBottom: scaledPixels(20),
+    marginTop: scaledPixels(15),
+    textShadowColor: "rgba(0, 0, 0, 0.75)",
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
+  },
+  headerTitle: {
+    color: "#fff",
+    fontSize: scaledPixels(48),
+    fontWeight: "bold",
+    textShadowColor: "rgba(0, 0, 0, 0.75)",
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
+  },
+  headerDescription: {
+    color: "#fff",
+    fontSize: scaledPixels(24),
+    fontWeight: "500",
+    paddingTop: scaledPixels(16),
+    textShadowColor: "rgba(0, 0, 0, 0.75)",
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
+  },
+  thumbnailTextContainer: {
+    position: "absolute",
+    bottom: scaledPixels(10),
+    left: scaledPixels(10),
+    right: scaledPixels(10),
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    padding: scaledPixels(5),
+    borderRadius: scaledPixels(3),
+  },
+  thumbnailText: {
+    color: "#fff",
+    fontSize: scaledPixels(18),
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  highlightThumbnail: {
+    width: scaledPixels(400),
+    height: scaledPixels(240),
+    marginRight: scaledPixels(10),
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
+    borderRadius: scaledPixels(5),
+  },
+  highlightThumbnailFocused: {
+    borderColor: "#fff",
+    borderWidth: scaledPixels(4),
+  },
+  highlightsContainer: {
+    padding: scaledPixels(10),
+  },
+  thumbnailPlaceholder: {
+    backgroundColor: "rgba(255, 255, 255, 0.2)",
+    width: "100%",
+    height: "100%",
+    borderRadius: scaledPixels(5),
+  },
+  header: {
+    width: "100%",
+    height: scaledPixels(400),
+    position: "relative",
+  },
+  headerImage: {
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover",
+  },
+  gradientLeft: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    top: 0,
+    height: "100%",
+  },
+  gradientBottom: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: "15%",
+  },
+  headerTextContainer: {
+    position: "absolute",
+    left: scaledPixels(40), // Add left padding
+    top: 0,
+    bottom: 0,
+    justifyContent: "center", // Center vertically
+    width: "50%", // Limit width to prevent overlap with right side
+  },
+  highlightsList: {
+    paddingLeft: scaledPixels(20),
+  },
+  cardImage: {
+    width: "100%",
+    height: "70%",
+    borderTopLeftRadius: scaledPixels(10),
+    borderTopRightRadius: scaledPixels(10),
+  },
+  sidebar: {
+    width: scaledPixels(200),
+  },
+});
 
 const moviesData = [
   {

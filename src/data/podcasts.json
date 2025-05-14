@@ -1,0 +1,480 @@
+{
+  "podcasts": [
+    {
+      "id": "ted-talks-daily",
+      "title": "TED Talks Daily",
+      "description": "Every weekday, join journalist Elise Hu for thought-provoking ideas given by the world's leading thinkers and creators. With TED Talks Daily, find some space in your day to change your perspectives, ignite your curiosity, and learn something new.",
+      "shortDescription": "Every weekday, join journalist Elise Hu for thought-provoking ideas given by the world's leading thinkers and creators.",
+      "hosts": [
+        {
+          "name": "Elise Hu",
+          "role": "Broadcast Journalist"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/TED_talks_daily.jpg",
+      "feedUrl": "https://podcasts.apple.com/us/podcast/ted-talks-daily/id160904630",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/67587e77c705e441797aff96"
+    },
+    {
+      "id": "how-to-be-a-better-human",
+      "title": "How To Be a Better Human",
+      "description": "From your work to your home and your head to your heart, How To Be a Better Human helps you be a little less terrible, all from the comfort of your own headphones.",
+      "shortDescription": "From your work to your home and your head to your heart, How To Be a Better Human helps you be a little less terrible.",
+      "hosts": [
+        {
+          "name": "Chris Duffy",
+          "role": "Comedian & Writer"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/better_human.jpg",
+      "feedUrl": "https://link.chtbl.com/HTBABHApple",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/67572b3b2dd88df13220eb3b"
+    },
+    {
+      "id": "fixable",
+      "title": "Fixable",
+      "description": "Frances Frei is a Harvard Business professor. Anne Morriss is a CEO and best-selling author. Anne and Frances are two of the top leadership coaches in the world. Oh, did we mention they're also married to each other? Together, Anne and Frances move fast and fix stuff by talking to guest callers about their workplace issues and solving their problems – in 30 minutes or less. Both listeners and guests will receive actionable insights to create meaningful change in the workplace. From CEOs to nurses, the restaurant world to Silicon Valley, Frances and Anne have a plan for anyone hoping to improve their their workplace. If you want to be on Fixable, call our hotline at 234-Fixable (that's 234-349-2253) to leave Anne and Frances a voicemail with your workplace problem.",
+      "shortDescription": "Frances Frei and Anne Morriss move fast and fix stuff by talking to guest callers about their workplace issues and solving their problems – in 30 minutes or less.",
+      "hosts": [
+        {
+          "name": "Anne Morriss and Frances Frei",
+          "role": "Professor and business coach"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/fixable.jpg",
+      "feedUrl": "https://podcasts.apple.com/us/podcast/fixable/id1677016372",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/67572068d59c6635eea1c5fc"
+    },
+    {
+      "id": "ted-ai-show",
+      "title": "TED AI Show",
+      "description": "Is AI about to change everything? Whether you're optimistic, pessimistic, or somewhere in between about the power of artificial intelligence, join host Bilawal Sidhu and the world's leading experts, artists, journalists, and beyond, as they guide you through this fast-moving world.",
+      "shortDescription": "Join host Bilawal Sidhu and the world's leading experts as they guide you through the fast-moving world of artificial intelligence.",
+      "hosts": [
+        {
+          "name": "Bilawal Sidhu",
+          "role": "Creative technologist"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/ted_ai_show.jpeg",
+      "feedUrl": "https://podcasts.apple.com/us/podcast/the-ted-ai-show/id1741574582",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/6758564a102e6d4448d19589"
+    },
+    {
+      "id": "rethinking-with-adam-grant",
+      "title": "Re:Thinking with Adam Grant",
+      "description": "As an organizational psychologist, Adam Grant believes that great minds don't think alike; they challenge each other to think differently. In his new show, he has lively discussions and debates with some of the world's most interesting thinkers, creators, achievers, and leaders to find out what makes them tick.",
+      "shortDescription": "Adam Grant has lively discussions and debates with some of the world's most interesting thinkers, creators, achievers, and leaders.",
+      "hosts": [
+        {
+          "name": "Adam Grant",
+          "role": "Organizational Psychologist"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/rethinking_with_adam_grant.jpg",
+      "feedUrl": "https://link.chtbl.com/Ipgsrpvb",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/675858676d1777b3683ec351"
+    },
+    {
+      "id": "design-matters",
+      "title": "Design Matters",
+      "description": "Renowned designer Debbie Millman sits down and gets deep with your favorite creative,  exploring how they design the arc of their lives.",
+      "shortDescription": "Renowned designer Debbie Millman sits down and gets deep with your favorite creative, exploring how they design the arc of their lives.",
+      "hosts": [
+        {
+          "name": "Debbie Millman",
+          "role": "Designer"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/design_matters.jpg",
+      "feedUrl": "https://podcasts.apple.com/us/podcast/design-matters-with-debbie-millman/id328074695",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/67572f5f7205a5bc68e9792a"
+    },
+    {
+      "id": "worklife-with-adam-grant",
+      "title": "WorkLife with Adam Grant",
+      "description": "Organizational psychologist Adam Grant takes you inside the minds of some of the world's most unusual professionals to explore the science of making work not suck. From learning how to love criticism to harnessing the power of frustration, one thing's for sure: You'll never see your job the same way again.",
+      "shortDescription": "Adam Grant takes you inside the minds of some of the world's most unusual professionals to explore the science of making work not suck.",
+      "hosts": [
+        {
+          "name": "Adam Grant",
+          "role": "Organizational Psychologist"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/WorkLife_with_Adam_Grant.jpg",
+      "feedUrl": "https://link.chtbl.com/5pNORnAV",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/67585d9cc705e441796ddaf6"
+    },
+    {
+      "id": "your-undivided-attention",
+      "title": "Your Undivided Attention",
+      "description": "In this podcast from the Center for Humane Technology, co-hosts Tristan Harris and Aza Raskin explore the incredible power that technology has over our lives — and how we can use it to catalyze a humane future.\n\nJoin us every other Thursday as we confront challenges and explore solutions with a wide-range of thought leaders and change-makers — like Kate Raworth on renegade economics, Audrey Tang on digital democracy, Daniel Schmachtenberger on global coordination, and Yuval Noah Harari on the co-evolution of technology and democracy.\n\nYour Undivided Attention is proud to be part of the TED Audio Collective. Executive Producer is Stephanie Lepp and Senior Producer is Julia Scott.",
+      "shortDescription": "Co-hosts Tristan Harris and Aza Raskin explore the incredible power that technology has over our lives — and how we can use it to catalyze a humane future.",
+      "hosts": [
+        {
+          "name": "Tristan Harris and Aza Raskin",
+          "role": "Design thinker, entrepreneur"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/your_undivided_attention.jpg",
+      "feedUrl": "https://podcasts.apple.com/us/podcast/your-undivided-attention/id1460030305",
+      "language": "English",
+      "acastUrl": "https://feeds.simplecast.com/rZ0cYk12"
+    },
+    {
+      "id": "ted-radio-hour",
+      "title": "TED Radio Hour",
+      "description": "Can we preserve our humanity in the digital age? Where does creativity come from? And what's the secret to living longer? Manoush Zomorodi explores big ideas through TED Talks and original interviews, inspiring us to learn more about the world, our communities, and most importantly, ourselves.",
+      "shortDescription": "Manoush Zomorodi explores big ideas through TED Talks and original interviews, inspiring us to learn more about the world and ourselves.",
+      "hosts": [
+        {
+          "name": "Manoush Zomorodi",
+          "role": "Journalist & Author"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/TED_radio_hour.jpg",
+      "feedUrl": "https://link.chtbl.com/TRH_Apple",
+      "language": "English",
+      "acastUrl": "https://feeds.npr.org/510298/podcast.xml"
+    },
+    {
+      "id": "ted-climate",
+      "title": "TED Climate",
+      "description": "Host Dan Kwartler unpacks the problems and solutions behind big systemic issues in bite-sized episodes and shares little ways you can make changes in your daily life to help change climate change.",
+      "shortDescription": "Host Dan Kwartler unpacks the problems and solutions behind big systemic issues in bite-sized episodes.",
+      "hosts": [
+        {
+          "name": "Dan Kwartler",
+          "role": "Educator, producer"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/TEDClimate_Avatar.jpg",
+      "feedUrl": "https://podcasts.apple.com/us/podcast/ted-climate/id1534967020",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/6704588fa77002bfdd05b1a0"
+    },
+    {
+      "id": "ted-health",
+      "title": "TED Health",
+      "description": "What does exercise do to your brain? Can psychedelics treat depression? On TED Health, speakers answer questions you never even knew you had - and share ideas you won't hear anywhere else - on how we can live healthier lives.",
+      "shortDescription": "Speakers answer questions you never even knew you had - and share ideas you won't hear anywhere else - on how we can live healthier lives.",
+      "hosts": [
+        {
+          "name": "Shoshana Ungerleider",
+          "role": "Physician, Writer"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/TED_health.jpg",
+      "feedUrl": "https://link.chtbl.com/TEDHealthA",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/67585b08102e6d4448d360b1"
+    },
+    {
+      "id": "ted-business",
+      "title": "TED Business",
+      "description": "Every Monday, host Modupe Akinola of Columbia Business School presents the most powerful and surprising ideas that illuminate the business world.\n\nWhatever your business conundrum, there's a TED Talk for that!",
+      "shortDescription": "Every Monday, host Modupe Akinola presents the most powerful and surprising ideas that illuminate the business world.",
+      "hosts": [
+        {
+          "name": "Modupe Akinola",
+          "role": "Psychologist & Professor"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/TED_business.jpg",
+      "feedUrl": "https://link.chtbl.com/TEDBusinessApple",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/675727607205a5bc68e57057"
+    },
+    {
+      "id": "ted-tech",
+      "title": "TED Tech",
+      "description": "From the construction of virtual realities to the internet of things to the watches on our wrists—technology's influence is everywhere. Its role in our lives is evolving fast, and we're faced with riveting questions and tough challenges that sit at the intersection of technology and humanity. Listen in every Friday as TED speakers explore the way tech shapes how we think about society, science, design, business, and more.",
+      "shortDescription": "Listen in every Friday as TED speakers explore the way tech shapes how we think about society, science, design, business, and more.",
+      "hosts": [
+        {
+          "name": "Sherrell Dorsey",
+          "role": "Data journalist and entrepreneur"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/TED_Tech.jpeg",
+      "feedUrl": "https://link.chtbl.com/Ddj0JeBy",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/67585c62102e6d4448d44969"
+    },
+    {
+      "id": "ted-en-espanol",
+      "title": "TED en Español",
+      "description": "¿Cuál es la relación entre el amor y las matemáticas? ¿Cómo construye su identidad un inmigrante? ¿Nos reemplazará la inteligencia artificial en nuestros trabajos?\nEn el podcast de TED en Español te invitamos a hacernos este tipo de preguntas, a escuchar ideas provocadoras y a desarrollar nuevas maneras de pensar.",
+      "shortDescription": "Te invitamos a hacernos preguntas provocadoras, a escuchar ideas innovadoras y a desarrollar nuevas maneras de pensar.",
+      "hosts": [
+        {
+          "name": "Gerry Garbulsky",
+          "role": "Author & Professor"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/TED_en_espanol.jpg",
+      "feedUrl": "https://link.chtbl.com/TEEApple",
+      "language": "Spanish",
+      "acastUrl": "https://feeds.acast.com/public/shows/63e24225436c36001119fc66"
+    },
+    {
+      "id": "ted-en-francais",
+      "title": "TED en Français",
+      "description": "'TED en Français' est le podcast officiel de la communauté TED francophone, animé par Michel Levy Provençal. Chaque épisode vous invite à plonger dans l'univers d'un intervenant TED ou TEDx. Découvrez les coulisses de leur talk, explorez l'évolution de leurs projets et projetez-vous dans l'avenir de leur domaine d'expertise. Que vous soyez passionné par les sciences et technologies, les arts ou les transformations de la société  'TED en Français' vous offre une perspective unique sur les idées qui façonnent notre monde. Hébergé par Acast. Visitez acast.com/privacy pour plus d'informations.",
+      "shortDescription": "Le podcast officiel de la communauté TED francophone, animé par Michel Levy Provençal.",
+      "hosts": [
+        {
+          "name": "Michel Levy Provençal",
+          "role": "Author & Entrepreneur"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/ted_en_francaise.jpg",
+      "feedUrl": "https://podcasts.apple.com/us/podcast/ted-en-fran%C3%A7ais/id1781994760",
+      "language": "French",
+      "acastUrl": "https://feeds.acast.com/public/shows/6737ba65efa89af0b58e854e"
+    },
+    {
+      "id": "ted-in-chinese",
+      "title": "TED in Chinese",
+      "description": "《TED中文演讲》聚焦华语地区的创意，演讲人包括关注自身成长和精神世界的思考者，更有关注弱势群体和人类未来命运的探索者。",
+      "shortDescription": "《TED中文演讲》聚焦华语地区的创意，演讲人包括关注自身成长和精神世界的思考者。",
+      "hosts": [
+        {
+          "name": "Lisa Bu",
+          "role": "Passionate reader"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/TED_in_chinese.jpg",
+      "feedUrl": "https://link.chtbl.com/tncikT4T",
+      "language": "Chinese",
+      "acastUrl": "https://feeds.acast.com/public/shows/64f74dde9a04ce0011863833"
+    },
+    {
+      "id": "the-redemption-of-jar-jar-binks",
+      "title": "The Redemption of Jar Jar Binks",
+      "description": "Jar Jar Binks became one of the most polarizing figures in cinematic history when he made his debut in Star Wars Episode 1: The Phantom Menace in 1999. He was even named 'the most annoying movie character of all time' by Complex Magazine. After the release, Ahmed Best, the man who played Jar Jar, was hit with the full force of the backlash — and it nearly destroyed him. The Redemption of Jar Jar Binks is a six-part journey through the early internet to understand how one of the first-ever online hate campaigns began, and to right what we got so wrong about Jar Jar the first time around.",
+      "shortDescription": "A six-part journey through the early internet to understand how one of the first-ever online hate campaigns began, and to right what we got so wrong about Jar Jar the first time around.",
+      "hosts": [
+        {
+          "name": "Dylan Marron",
+          "role": "Writer, performer"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/trojjb.png",
+      "feedUrl": "https://link.chtbl.com/TruCJmtk",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/67045a4aaa9d704b1e94f29b"
+    },
+    {
+      "id": "conversations-with-people-who-hate-me",
+      "title": "Conversations With People Who Hate Me",
+      "description": "Dylan Marron explores what happens when online feuders step out from behind the keyboard and get to know the human on the other side of the screen.",
+      "shortDescription": "Dylan Marron explores what happens when online feuders step out from behind the keyboard and get to know the human on the other side of the screen.",
+      "hosts": [
+        {
+          "name": "Dylan Marron",
+          "role": "Writer & Performer"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/conversations.jpg",
+      "feedUrl": "https://podcasts.apple.com/us/podcast/conversations-with-people-who-hate-me/id1257821731",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/670453211a3de581c6843802"
+    },
+    {
+      "id": "am-i-normal-with-mona-chalabi",
+      "title": "Am I Normal? With Mona Chalabi",
+      "description": "We all want to know if we're normal—do I have enough friends? Should it take me this long to get over my ex? Should I move or stay where I am? Endlessly curious data journalist Mona Chalabi NEEDS to know, and she's ready to dive into the numbers to get some answers.",
+      "shortDescription": "Endlessly curious data journalist Mona Chalabi dives into the numbers to answer your questions about what's normal.",
+      "hosts": [
+        {
+          "name": "Mona Chalabi",
+          "role": "Data Journalist"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/am_i_normal.jpeg",
+      "feedUrl": "https://link.chtbl.com/AINAS",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/67043f1cc88f09c3e00f0a0"
+    },
+    {
+      "id": "body-stuff-with-dr-jen-gunter",
+      "title": "Body Stuff with Dr. Jen Gunter",
+      "description": "Dr. Jen Gunter is here to bust the lies you've been told — and sold — about your body.",
+      "shortDescription": "Dr. Jen Gunter is here to bust the lies you've been told — and sold — about your body.",
+      "hosts": [
+        {
+          "name": "Jen Gunter",
+          "role": "OBGYN, Physician"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/TED_Body_Stuff.jpg",
+      "feedUrl": "https://podcasts.apple.com/ie/podcast/body-stuff-with-dr-jen-gunter/id1566425638",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/67045002c88f09c3e013b3e9"
+    },
+    {
+      "id": "far-flung",
+      "title": "Far Flung",
+      "description": "Far Flung will take you on a journey across the globe in search of the world's most surprising ideas. It's not a travel show, exactly, but a deep dive into the ideas that shape a certain spot on the globe.",
+      "shortDescription": "A journey across the globe in search of the world's most surprising ideas.",
+      "hosts": [
+        {
+          "name": "Saleem Reshamwala",
+          "role": "Journalist & Filmmaker"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/far_flung.jpg",
+      "feedUrl": "https://link.chtbl.com/FarFlungA",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/670454296f369dd035d56571"
+    },
+    {
+      "id": "checking-in-with-susan-david",
+      "title": "Checking In with Susan David",
+      "description": "Fear, boredom, grief, confusion—we're all feeling… a lot right now. How do we cope with our heightened emotions during this global pandemic? Susan David—a psychologist at Harvard Medical School—is here to offer us help.",
+      "shortDescription": "Susan David—a psychologist at Harvard Medical School—helps us cope with our heightened emotions during this global pandemic.",
+      "hosts": [
+        {
+          "name": "Susan David",
+          "role": "Psychologist"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/checking_in.jpg",
+      "feedUrl": "https://podcasts.apple.com/us/podcast/id1504596643",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/670451f1c88f09c3e0142471"
+    },
+    {
+      "id": "zigzag",
+      "title": "ZigZag",
+      "description": "Join this zig-zagging quest with Manoush Zomorodi (Host of NPR's TED Radio Hour; Fast Company's 100 Most Creative People in Business) to discover new ways to align your ambitions with systemic change that's good for the world.",
+      "shortDescription": "Join Manoush Zomorodi on a quest to discover new ways to align your ambitions with systemic change that's good for the world.",
+      "hosts": [
+        {
+          "name": "Manoush Zomorodi",
+          "role": "Journalist & Author"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/zigzag.jpg",
+      "feedUrl": "https://podcasts.apple.com/us/podcast/id1385700943?mt=2",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/67045ba1a77002bfdd0667af"
+    },
+    {
+      "id": "after-hours",
+      "title": "After Hours",
+      "description": "A podcast at the intersection of business & culture. Listen in as Harvard professors Youngme Moon, Felix Oberholzer-Gee, and Mihir Desai, catch up after work and offer an insightful look at current events",
+      "shortDescription": "Harvard professors Youngme Moon, Felix Oberholzer-Gee, and Mihir Desai catch up after work and offer an insightful look at current events.",
+      "hosts": [
+        {
+          "name": "Youngme Moon",
+          "role": "Harvard Business Professors"
+        },
+        {
+          "name": "Felix Oberholzer-Gee",
+          "role": "Harvard Business Professors"
+        },
+        {
+          "name": "Mihir Desai",
+          "role": "Harvard Business Professors"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/after_hours.jpg",
+      "feedUrl": "https://podcasts.apple.com/us/podcast/after-hours/id1363110130",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/67573202e417dbfb211f744a"
+    },
+    {
+      "id": "good-sport",
+      "title": "Good Sport",
+      "description": "There's no better way to understand our world than through sports. Host Jody Avirgan (30 for 30, FiveThirtyEight, Radiotopia) is your guide through an array of stadiums, pitches, pools and slopes that shed a light on the ups and downs of being human.",
+      "shortDescription": "Host Jody Avirgan is your guide through an array of stadiums, pitches, pools and slopes that shed a light on the ups and downs of being human.",
+      "hosts": [
+        {
+          "name": "Jody Avirgan",
+          "role": "Sportswriter and journalist"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/Good_Sport_Artwork-01.png",
+      "feedUrl": "https://link.chtbl.com/JOXVwv47",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/670455086f369dd035d58c2d"
+    },
+    {
+      "id": "outrage-optimism",
+      "title": "Outrage + Optimism",
+      "description": "Face the climate crisis head on, but understand that we have the power to solve this. From former UN Chief Christiana Figueres and the team who brought you the Paris Agreement, this podcast about issues and politics will inform you, inspire you and help you realize that this is the most exciting time in history to be alive.",
+      "shortDescription": "From former UN Chief Christiana Figueres and the team who brought you the Paris Agreement, this podcast will inform and inspire you about climate action.",
+      "hosts": [
+        {
+          "name": "Christiana Figueres",
+          "role": "Stubborn optimists and nonprofit and political strategists"
+        },
+        {
+          "name": "Tom Rivett-Carnac and Paul Dickinson",
+          "role": "Stubborn optimists and nonprofit and political strategists"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/outrage_optimism.png",
+      "feedUrl": "https://link.chtbl.com/ZFeHD0UG",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/6781112bec40818e0b501b6a"
+    },
+    {
+      "id": "sincerely-x",
+      "title": "Sincerely, X",
+      "description": "Some ideas can't be shared in the open. Sincerely, X provides a space to share powerful ideas anonymously—stories that deserve to be heard, from people who remain hidden.",
+      "shortDescription": "A space to share powerful ideas anonymously—stories that deserve to be heard, from people who remain hidden.",
+      "hosts": [
+        {
+          "name": "Sarah Kay",
+          "role": "Poet & Educator"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/sincerely_x.jpg",
+      "feedUrl": "https://podcasts.apple.com/us/podcast/sincerely-x/id1238801741",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/6704561c1a3de581c684e1d5"
+    },
+    {
+      "id": "the-ted-interview",
+      "title": "The TED Interview",
+      "description": "To get a free copy of the Infectious Generosity book, visit ted.com/generosity Sit down with Head of TED Chris Anderson as he interviews leading thinkers and creators from around the world. The TED Interview is a space for guests to further delve into their groundbreaking work, give us a peek into how they discover and explore fascinating ideas, and, in some cases, even defend their thinking. This season, we're looking at Infectious Generosity. Generosity is at the heart of being human. It's how we've co-operated, innovated and grown as a civilization. Following Chris's book of the same name, this podcast will dive into the idea that through the power of the internet, small acts of thoughtfulness can change lives at a scale never experienced before. Welcome to your front-row seat to great conversations with the world's brightest minds about how to make the world a better place. And in the spirit of the Infectious Generosity, listeners can receive a free copy of Chris's book in e-book or audio format. Just visit ted.com/generosity and fill out the short form to receive yours.",
+      "shortDescription": "Sit down with Head of TED Chris Anderson as he interviews leading thinkers and creators from around the world.",
+      "hosts": [
+        {
+          "name": "Chris Anderson",
+          "role": "Head of TED"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/TED_interview.jpg",
+      "feedUrl": "https://link.chtbl.com/Apple",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/67045b43aa9d704b1e952e88"
+    },
+    {
+      "id": "tedx-shorts",
+      "title": "TEDx SHORTS",
+      "description": "TEDx SHORTS will give you the chance to immerse yourself in surprising knowledge, fresh perspectives, and moving stories from some of our most compelling talks.\n\nLess than 10 minutes a day, everyday!",
+      "shortDescription": "Immerse yourself in surprising knowledge, fresh perspectives, and moving stories from some of our most compelling talks.",
+      "hosts": [
+        {
+          "name": "Atossa Leoni",
+          "role": "Actress & Performer"
+        }
+      ],
+      "coverImage": "https://audiocollective.ted.com/assets/images/podcasts/TEDx_shorts.jpg",
+      "feedUrl": "https://podcasts.apple.com/us/podcast/tedx-shorts/id1509561884",
+      "language": "English",
+      "acastUrl": "https://feeds.acast.com/public/shows/670459d91a3de581c685a700"
+    }
+  ]
+}
