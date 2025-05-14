@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import { MOCK_SEARCH_RESULTS } from "../mock/search";
 
-const App = () => {
+const SearchScreen = () => {
   // State to track focused elements
   const [focusedVideo, setFocusedVideo] = useState(null);
   const [focusedKey, setFocusedKey] = useState(null);
@@ -57,7 +57,7 @@ const App = () => {
             style={[
               styles.key,
               (key === "SPACE" || key === "DELETE" || key === "CLEAR") &&
-                styles.spaceKey,
+              styles.spaceKey,
               focusedKey === key && styles.focusedKey,
             ]}
             onFocus={() => setFocusedKey(key)}
@@ -240,4 +240,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default SearchScreen;
