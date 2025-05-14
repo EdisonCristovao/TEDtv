@@ -11,8 +11,10 @@ import {
   StatusBar,
 } from "react-native";
 import { MOCK_SEARCH_RESULTS } from "../mock/search";
+import { useNavigation } from "@react-navigation/native";
 
 const App = () => {
+  const navigation = useNavigation();
   // State to track focused elements
   const [focusedVideo, setFocusedVideo] = useState(null);
   const [focusedKey, setFocusedKey] = useState(null);
@@ -89,6 +91,15 @@ const App = () => {
         onBlur={() => setFocusedVideo(null)}
         underlayColor="transparent"
         style={styles.videoContainer}
+        onPress={() => {
+          navigation.navigate("Details", {
+            movie:
+              "https://py.tedcdn.com/consus/projects/00/30/63/007/products/2017-guy-winch-007-fallback-15b39b68458aede8008f3e52cc91a342-1200k.mp4",
+            title: item.title,
+            description: item.description,
+            headerImage: imageUrl,
+          });
+        }}
       >
         <View style={{ flex: 1 }}>
           <View
@@ -193,6 +204,7 @@ const styles = StyleSheet.create({
   keyText: {
     color: "#FFFFFF",
     fontSize: 16,
+    fontWeight: "bold",
   },
   focusedKey: {
     backgroundColor: "#FFFFFF",

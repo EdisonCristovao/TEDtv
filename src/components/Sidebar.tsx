@@ -5,9 +5,12 @@ import SearchIcon from "./svg/SearchIcon";
 import HomeIcon from "./svg/HomeIcon";
 import MyLibraryIcon from "./svg/MyLibraryIcon";
 import PodcastsIcon from "./svg/PodcastsIcon";
-import { SpatialNavigationFocusableView, SpatialNavigationView } from "react-tv-space-navigation";
+import {
+  SpatialNavigationFocusableView,
+  SpatialNavigationView,
+} from "react-tv-space-navigation";
 import FocusablePressable from "./FocusablePressable";
-import { useDrawerStatus, } from "@react-navigation/drawer";
+import { useDrawerStatus } from "@react-navigation/drawer";
 import { DrawerActions, useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import { scaledPixels } from "../hooks/useScale";
@@ -25,42 +28,97 @@ export default function Sidebar() {
 
   const handleFocus = () => {
     navigation.dispatch(DrawerActions.openDrawer());
-  }
+  };
 
   const handleBlur = () => {
     navigation.dispatch(DrawerActions.closeDrawer());
-  }
+  };
 
   const getIconStyle = (focused: boolean) => {
-    return { ...styles.icon, ...(focused ? styles.focusedIcon : styles.notFocusedIcon) };
-  }
+    return {
+      ...styles.icon,
+      ...(focused ? styles.focusedIcon : styles.notFocusedIcon),
+    };
+  };
 
   return (
-    <SpatialNavigationFocusableView onFocus={handleFocus} onBlur={handleBlur} style={styles.container}>
+    <SpatialNavigationFocusableView
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      style={styles.container}
+    >
       <View style={styles.header}>
-        <FocusablePressable onFocus={() => { setFocused("user") }} style={styles.icon} focusedStyle={getIconStyle(focused === "user")} onSelect={() => { }}>
+        <FocusablePressable
+          onFocus={() => {
+            setFocused("user");
+          }}
+          style={styles.icon}
+          focusedStyle={getIconStyle(focused === "user")}
+          onSelect={() => {}}
+        >
           <UserIcon color={focused === "user" ? "white" : "#616161"} />
         </FocusablePressable>
         <View style={styles.icons}>
-          <FocusablePressable onFocus={() => { setFocused("search") }} style={styles.icon} focusedStyle={getIconStyle(focused === "search")} onSelect={() => { }}>
+          <FocusablePressable
+            onFocus={() => {
+              setFocused("search");
+            }}
+            style={styles.icon}
+            focusedStyle={getIconStyle(focused === "search")}
+            onSelect={() => {
+              navigation.navigate("Search" as never);
+            }}
+          >
             <SearchIcon color={focused === "search" ? "white" : "#616161"} />
           </FocusablePressable>
-          <FocusablePressable onFocus={() => { setFocused("home") }} style={styles.icon} focusedStyle={getIconStyle(focused === "home")} onSelect={() => { }}>
+          <FocusablePressable
+            onFocus={() => {
+              setFocused("home");
+            }}
+            style={styles.icon}
+            focusedStyle={getIconStyle(focused === "home")}
+            onSelect={() => {}}
+          >
             <HomeIcon color={focused === "home" ? "white" : "#616161"} />
           </FocusablePressable>
-          <FocusablePressable onFocus={() => { setFocused("myLibrary") }} style={styles.icon} focusedStyle={getIconStyle(focused === "myLibrary")} onSelect={() => { }}>
-            <MyLibraryIcon color={focused === "myLibrary" ? "white" : "#616161"} />
+          <FocusablePressable
+            onFocus={() => {
+              setFocused("myLibrary");
+            }}
+            style={styles.icon}
+            focusedStyle={getIconStyle(focused === "myLibrary")}
+            onSelect={() => {}}
+          >
+            <MyLibraryIcon
+              color={focused === "myLibrary" ? "white" : "#616161"}
+            />
           </FocusablePressable>
-          <FocusablePressable onFocus={() => { setFocused("podcasts") }} style={styles.icon} focusedStyle={getIconStyle(focused === "podcasts")} onSelect={() => { }}>
-            <PodcastsIcon color={focused === "podcasts" ? "white" : "#616161"} />
+          <FocusablePressable
+            onFocus={() => {
+              setFocused("podcasts");
+            }}
+            style={styles.icon}
+            focusedStyle={getIconStyle(focused === "podcasts")}
+            onSelect={() => {}}
+          >
+            <PodcastsIcon
+              color={focused === "podcasts" ? "white" : "#616161"}
+            />
           </FocusablePressable>
         </View>
-        <FocusablePressable onFocus={() => { setFocused("settings") }} style={styles.icon} focusedStyle={getIconStyle(focused === "settings")} onSelect={() => { }}>
+        <FocusablePressable
+          onFocus={() => {
+            setFocused("settings");
+          }}
+          style={styles.icon}
+          focusedStyle={getIconStyle(focused === "settings")}
+          onSelect={() => {}}
+        >
           <SettingsIcon color={focused === "settings" ? "white" : "#616161"} />
         </FocusablePressable>
       </View>
     </SpatialNavigationFocusableView>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -95,5 +153,5 @@ const styles = StyleSheet.create({
   },
   notFocusedIcon: {
     borderLeftColor: "transparent",
-  }
+  },
 });
