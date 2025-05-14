@@ -6,6 +6,8 @@ import DetailsScreen from "../screens/DetailsScreen";
 import SearchScreen from "../screens/SearchScreen";
 import { View, StyleSheet } from "react-native";
 import DrawerStack from "./DrawerStack";
+import PodcastsScreen from "../screens/PodcastsScreen";
+
 const Stack = createNativeStackNavigator();
 
 const RootStack = () => {
@@ -15,16 +17,15 @@ const RootStack = () => {
       <Stack.Navigator
         id={undefined}
         screenOptions={{
-          headerShown: true,
-          header: () => {
-            return <View style={styles.header}></View>;
-          },
+          headerShown: false,
         }}
+        initialRouteName="DrawerStack"
       >
         <Stack.Screen name="DrawerStack" component={DrawerStack} initialParams={{ navigationRef }} />
         <Stack.Screen name="Details" component={DetailsScreen} />
         <Stack.Screen name="Search" component={SearchScreen} />
         <Stack.Screen name="Video" component={VideoScreen} />
+        <Stack.Screen name="Podcasts" component={PodcastsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
