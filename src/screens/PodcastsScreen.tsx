@@ -10,10 +10,9 @@ import {
   SafeAreaView,
   StatusBar,
 } from "react-native";
-import PODCASTS_DATA from "../data/podcasts.json";
-import TedLogo from "../components/TedLogo";
-import HeaderTitle from "../components/HeaderTitle";
+import PODCASTS_DATA from "../mock/podcasts.json";
 import { scaledPixels } from "../hooks/useScale";
+import DefaultHeader from "../components/DefaultHeader";
 
 const PodcastsScreen = () => {
   // State to track focused elements
@@ -58,10 +57,7 @@ const PodcastsScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       {/* Header with TED logo and search bar */}
-      <View style={styles.header}>
-        <TedLogo />
-        <HeaderTitle title="Podcasts" />
-      </View>
+      <DefaultHeader title="Podcasts" />
       <View style={{ flex: 1, flexDirection: "row", gap: 16 }}>
 
         {/* Videos grid */}
@@ -84,12 +80,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#000000",
     paddingHorizontal: 20,
-  },
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingBottom: 40,
-    gap: 16,
   },
   videoRow: {
     justifyContent: "space-evenly",

@@ -1,18 +1,13 @@
 
 import { StyleSheet, Text, View } from "react-native";
 import { scaledPixels } from "../hooks/useScale";
-import { DrawerContentScrollView, DrawerItem, DrawerItemList, DrawerContentComponentProps } from "@react-navigation/drawer";
-import { drawerItems } from "./Sidebar";
-import FocusablePressable from "./FocusablePressable";
-import { DefaultFocus, SpatialNavigationFocusableView } from "react-tv-space-navigation";
-import DrawerContentItem from "./DrawerContentItem";
 import { LinearGradient } from "expo-linear-gradient";
 
 const DrawerContent = () => {
   return <View style={styles.container}>
     <LinearGradient
       colors={["#000000", "transparent"]}
-      locations={[0.15, 1]}
+      locations={[0.025, 1]}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 0 }}
       style={styles.gradient}

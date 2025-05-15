@@ -12,7 +12,6 @@ export default function SidebarItem({ sidebarOpen, item, handleMenuItemSelect }:
   return (
     <SpatialNavigationFocusableView onSelect={() => handleMenuItemSelect(item)} style={styles.itemContainer}>
       {({ isFocused }) => {
-        console.log(isFocused);
         return (
           <View style={[styles.menuItems, getIconStyle(isFocused)]}>
             <Icon color={isFocused ? "white" : "#616161"} />
