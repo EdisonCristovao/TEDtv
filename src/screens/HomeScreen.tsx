@@ -16,6 +16,7 @@ import {
 import TalkCard from "../components/TalkCard";
 import { useMenuContext } from "../contexts/MenuContext";
 import { NavigationProps } from "../navigation/types";
+import FocusablePressable from "../components/FocusablePressable";
 interface CardData {
   id: string;
   title: string;
@@ -38,13 +39,29 @@ export default function HomeScreen() {
   const renderHeader = useCallback(
     () => (
       <View style={styles.header}>
-        <Image
-          style={[styles.headerImage, { width: "80%", alignSelf: "flex-end" }]}
-          source={{
-            uri: focusedItem.headerImage,
+        <View
+          style={{
+            position: "absolute",
+            right: 0,
+            top: 0,
+            bottom: 0,
+            justifyContent: "center",
+            alignItems: "flex-end",
+            width: "60%",
+            height: "100%",
           }}
-          resizeMode="cover"
-        />
+        >
+          <Image
+            style={[
+              styles.headerImage,
+              { width: "100%", height: "100%", alignSelf: "flex-end" },
+            ]}
+            source={{
+              uri: focusedItem.headerImage,
+            }}
+            resizeMode="none"
+          />
+        </View>
         <LinearGradient
           colors={[
             "rgba(0,0,0,0.9)",
@@ -101,7 +118,6 @@ export default function HomeScreen() {
                     setFocusedIndex(index);
                   }}
                   onSelect={() => {
-                    console.log("SELECTED", item.title);
                     navigation.navigate("Details", {
                       title: item.title,
                       description: item.description,
@@ -181,7 +197,6 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: scaledPixels(24),
     fontWeight: "500",
-    paddingTop: scaledPixels(16),
     textShadowColor: "rgba(0, 0, 0, 0.75)",
     textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 10,
@@ -253,6 +268,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     justifyContent: "center", // Center vertically
     width: "50%", // Limit width to prevent overlap with right side
+    gap: scaledPixels(20),
   },
   highlightsList: {
     paddingLeft: scaledPixels(20),
@@ -279,7 +295,7 @@ const moviesData = [
     headerImage:
       "https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/7adc2250-de27-4116-b4ea-6fb4637ca98a/LeraBoroditsky_2017W-embed.jpg",
     movie:
-      "https://bitdash-a.akamaihd.net/content/MI201109210084_1/playlist.m3u8",
+      "https://py.tedcdn.com/consus/projects/00/30/63/007/products/2017-guy-winch-007-fallback-15b39b68458aede8008f3e52cc91a342-1200k.mp4",
     duration: 853,
   },
   {

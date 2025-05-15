@@ -19,6 +19,14 @@
         }
       ],
       [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#1F1F1F",
+          "image": "./src/assets/images/splash-icon.png",
+          "imageWidth": 1024
+        }
+      ],
+      [
         "expo-video",
         {
           "supportsBackgroundPlayback": true,
@@ -26,22 +34,14 @@
         }
       ]
     ],
+    "newArchEnabled": true,
+    "name": "TEDtv",
+    "slug": "TEDtv",
     "android": {
-      "splash": {
-        "image": "./src/assets/images/icon-1920x720.png",
-        "backgroundColor": "#111111"
-      },
       "package": "com.anonymous.TEDtv"
     },
     "ios": {
-      "splash": {
-        "image": "./src/assets/images/icon-1920x720.png",
-        "backgroundColor": "#111111"
-      },
       "bundleIdentifier": "com.anonymous.TEDtv"
-    },
-    "newArchEnabled": true,
-    "name": "TEDtv",
-    "slug": "TEDtv"
+    }
   }
 }

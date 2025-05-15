@@ -5,6 +5,7 @@ import {
   StyleSheet,
   PressableProps,
   ViewStyle,
+  TouchableHighlight,
 } from "react-native";
 import { scaledPixels } from "../hooks/useScale";
 import { SpatialNavigationFocusableView } from "react-tv-space-navigation";
@@ -28,14 +29,13 @@ const FocusablePressable = ({
   return (
     <SpatialNavigationFocusableView onSelect={onSelect}>
       {({ isFocused }) => (
-        <Pressable
+        <TouchableHighlight
           {...props}
           style={[
             styles.watchButton,
             isFocused && (focusedStyle || styles.watchButtonFocused),
             style,
           ]}
-          onPress={onSelect}
         >
           {children ? (
             children
@@ -50,7 +50,7 @@ const FocusablePressable = ({
               {text}
             </Text>
           )}
-        </Pressable>
+        </TouchableHighlight>
       )}
     </SpatialNavigationFocusableView>
   );
@@ -59,15 +59,17 @@ const FocusablePressable = ({
 const styles = StyleSheet.create({
   watchButton: {
     paddingVertical: scaledPixels(15),
+    paddingHorizontal: scaledPixels(30),
     borderRadius: scaledPixels(5),
     alignItems: "center",
     alignSelf: "flex-start",
     padding: scaledPixels(10),
+    backgroundColor: "#202020",
+    color: "#615F5F",
   },
   watchButtonFocused: {
-    borderColor: "#fff",
-    borderWidth: 1,
     padding: scaledPixels(10),
+    backgroundColor: "#FFFFFF",
   },
   watchButtonText: {
     color: "#fff",
@@ -75,7 +77,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   watchButtonTextFocused: {
-    color: "#fff",
+    color: "#111",
     fontSize: scaledPixels(18),
     fontWeight: "bold",
   },

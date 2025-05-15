@@ -7,30 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		06A56D7DA0C7117577EBF6B1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 999CB267D9C0E375E653D779 /* PrivacyInfo.xcprivacy */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		628D50C099CD41C0AA9406C5 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209C2FD559574FF3A1594F37 /* noop-file.swift */; };
+		93C9F8ED36014B44967860BD /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FF1E7F27D34907BBC770DB /* noop-file.swift */; };
 		96905EF65AED1B983A6B3ABC /* libPods-TEDtv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-TEDtv.a */; };
+		A4AC231B24EB4156863816B1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 5FEB7BE5070CFD822D39ECAD /* PrivacyInfo.xcprivacy */; };
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02FF1E7F27D34907BBC770DB /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "TEDtv/noop-file.swift"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* TEDtv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TEDtv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = TEDtv/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = TEDtv/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = TEDtv/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = TEDtv/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = TEDtv/main.m; sourceTree = "<group>"; };
-		209C2FD559574FF3A1594F37 /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "TEDtv/noop-file.swift"; sourceTree = "<group>"; };
+		2FD7E33E70FF499A80FF0D7E /* TEDtv-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "TEDtv-Bridging-Header.h"; path = "TEDtv/TEDtv-Bridging-Header.h"; sourceTree = "<group>"; };
 		58EEBF8E8E6FB1BC6CAF49B5 /* libPods-TEDtv.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TEDtv.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FEB7BE5070CFD822D39ECAD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = TEDtv/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		6C2E3173556A471DD304B334 /* Pods-TEDtv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TEDtv.debug.xcconfig"; path = "Target Support Files/Pods-TEDtv/Pods-TEDtv.debug.xcconfig"; sourceTree = "<group>"; };
 		7A4D352CD337FB3A3BF06240 /* Pods-TEDtv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TEDtv.release.xcconfig"; path = "Target Support Files/Pods-TEDtv/Pods-TEDtv.release.xcconfig"; sourceTree = "<group>"; };
-		81C51C5E22E645BD87068C38 /* TEDtv-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "TEDtv-Bridging-Header.h"; path = "TEDtv/TEDtv-Bridging-Header.h"; sourceTree = "<group>"; };
-		999CB267D9C0E375E653D779 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = TEDtv/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = TEDtv/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -59,9 +59,9 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				209C2FD559574FF3A1594F37 /* noop-file.swift */,
-				81C51C5E22E645BD87068C38 /* TEDtv-Bridging-Header.h */,
-				999CB267D9C0E375E653D779 /* PrivacyInfo.xcprivacy */,
+				02FF1E7F27D34907BBC770DB /* noop-file.swift */,
+				2FD7E33E70FF499A80FF0D7E /* TEDtv-Bridging-Header.h */,
+				5FEB7BE5070CFD822D39ECAD /* PrivacyInfo.xcprivacy */,
 			);
 			name = TEDtv;
 			sourceTree = "<group>";
@@ -147,13 +147,13 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "TEDtv" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				E247101AAF49943302D2F07C /* [Expo] Configure project */,
+				FD397DC4E61912F1654EB523 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				DA2CB1A00916C25E3BA1452D /* [CP] Embed Pods Frameworks */,
+				C29C3E570C34644124450667 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -203,7 +203,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				06A56D7DA0C7117577EBF6B1 /* PrivacyInfo.xcprivacy in Resources */,
+				A4AC231B24EB4156863816B1 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +317,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TEDtv/Pods-TEDtv-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DA2CB1A00916C25E3BA1452D /* [CP] Embed Pods Frameworks */ = {
+		C29C3E570C34644124450667 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -335,7 +335,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TEDtv/Pods-TEDtv-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E247101AAF49943302D2F07C /* [Expo] Configure project */ = {
+		FD397DC4E61912F1654EB523 /* [Expo] Configure project */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -364,7 +364,7 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */,
-				628D50C099CD41C0AA9406C5 /* noop-file.swift in Sources */,
+				93C9F8ED36014B44967860BD /* noop-file.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,7 +395,7 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anonymous.TEDtv;
-				PRODUCT_NAME = "TEDtv";
+				PRODUCT_NAME = TEDtv;
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = "TEDtv/TEDtv-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -425,7 +425,7 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anonymous.TEDtv;
-				PRODUCT_NAME = "TEDtv";
+				PRODUCT_NAME = TEDtv;
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = "TEDtv/TEDtv-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
