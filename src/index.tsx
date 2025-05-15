@@ -1,4 +1,8 @@
-import { Directions, SpatialNavigation, SpatialNavigationRoot } from "react-tv-space-navigation";
+import {
+  Directions,
+  SpatialNavigation,
+  SpatialNavigationRoot,
+} from "react-tv-space-navigation";
 import RemoteControlManager from "./remote-control/RemoteControlManager";
 import { SupportedKeys } from "./remote-control/SupportedKeys";
 

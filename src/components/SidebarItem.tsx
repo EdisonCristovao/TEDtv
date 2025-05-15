@@ -2,32 +2,47 @@ import { View, StyleSheet, Text } from "react-native";
 import { SpatialNavigationFocusableView } from "react-tv-space-navigation";
 import { scaledPixels } from "../hooks/useScale";
 
-export default function SidebarItem({ sidebarOpen, item, handleMenuItemSelect }: { sidebarOpen: boolean, item: any, handleMenuItemSelect: (item: any) => void }) {
+export default function SidebarItem({
+  sidebarOpen,
+  item,
+  handleMenuItemSelect,
+}: {
+  sidebarOpen: boolean;
+  item: any;
+  handleMenuItemSelect: (item: any) => void;
+}) {
   const { Icon } = item;
 
   const getIconStyle = (focused: boolean) => {
-    return { ...styles.icon, ...(focused ? styles.focusedIcon : styles.notFocusedIcon) };
-  }
+    return {
+      ...styles.icon,
+      ...(focused ? styles.focusedIcon : styles.notFocusedIcon),
+    };
+  };
 
   return (
-    <SpatialNavigationFocusableView onSelect={() => handleMenuItemSelect(item)} style={styles.itemContainer}>
-      {({ isFocused }) => {
-        console.log(isFocused);
-        return (
-          <View style={[styles.menuItems, getIconStyle(isFocused)]}>
-            <Icon color={isFocused ? "white" : "#616161"} />
-            {sidebarOpen && <Text style={[styles.menuText, isFocused && styles.menuTextFocused]}>{item.label}</Text>}
-          </View>
-        )
-      }}
+    <SpatialNavigationFocusableView
+      onSelect={() => handleMenuItemSelect(item)}
+      style={styles.itemContainer}
+    >
+      {({ isFocused }) => (
+        <View style={[styles.menuItems, getIconStyle(isFocused)]}>
+          <Icon color={isFocused ? "white" : "#616161"} />
+          {sidebarOpen && (
+            <Text
+              style={[styles.menuText, isFocused && styles.menuTextFocused]}
+            >
+              {item.label}
+            </Text>
+          )}
+        </View>
+      )}
     </SpatialNavigationFocusableView>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
-  itemContainer: {
-
-  },
+  itemContainer: {},
   icon: {
     borderRadius: scaledPixels(0),
     paddingLeft: scaledPixels(20),
@@ -40,7 +55,7 @@ const styles = StyleSheet.create({
     borderLeftColor: "transparent",
   },
   menuItems: {
-    flexDirection: 'row',
+    flexDirection: "row",
     paddingTop: scaledPixels(16),
     paddingBottom: scaledPixels(8),
     gap: scaledPixels(40),
@@ -50,6 +65,6 @@ const styles = StyleSheet.create({
     fontSize: scaledPixels(28),
   },
   menuTextFocused: {
-    color: 'white',
+    color: "white",
   },
 });
