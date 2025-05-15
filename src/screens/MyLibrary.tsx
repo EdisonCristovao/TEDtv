@@ -20,7 +20,7 @@ const MyLibrary = () => {
   const [focusedIndex, setFocusedIndex] = useState(0);
 
   const renderScrollableRow = useCallback(
-    (title: string, data: any[], isSquare = false) => {
+    (title: string, data: any[], isPodcast = false) => {
       return (
         <View style={styles.highlightsContainer}>
           <View
@@ -50,14 +50,9 @@ const MyLibrary = () => {
                   onFocus={() => {
                     setFocusedIndex(index);
                   }}
-                  isSquare={isSquare}
+                  isSquare={isPodcast}
                   onSelect={() => {
-                    navigation.navigate("Details", {
-                      title: item.title,
-                      description: item.description,
-                      headerImage: item.headerImage,
-                      movie: item.movie,
-                    });
+                    navigation.navigate(isPodcast ? "PodcastEpisodes" : "Details", { ...item });
                   }}
                 />
               ))}

@@ -12,6 +12,8 @@ import DrawerStack from "./DrawerStack";
 import PodcastsScreen from "../screens/PodcastsScreen";
 import SettingsDrawerStack from "./SettingsDrawerStack";
 import MyLibrary from "../screens/MyLibrary";
+import PodcastEpisodesScreen from "../screens/PodcastEpisodesScreen";
+// import AudioScreen from "../screens/AudioScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +37,8 @@ const RootStack = () => {
         <Stack.Screen name="Search" component={SearchScreen} />
         <Stack.Screen name="Video" component={VideoScreen} />
         <Stack.Screen name="Podcasts" component={PodcastsScreen} />
+        <Stack.Screen name="PodcastEpisodes" component={PodcastEpisodesScreen} />
+        {/* <Stack.Screen name="PodcastEpisodePlayer" component={AudioScreen} /> */}
         <Stack.Screen name="Settings" component={SettingsDrawerStack} />
         <Stack.Screen name="MyLibrary" component={MyLibrary} />
       </Stack.Navigator>

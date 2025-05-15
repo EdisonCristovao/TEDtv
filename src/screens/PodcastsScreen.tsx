@@ -13,11 +13,11 @@ import {
 import PODCASTS_DATA from "../mock/podcasts.json";
 import { scaledPixels } from "../hooks/useScale";
 import DefaultHeader from "../components/DefaultHeader";
-
+import { useNavigation } from "@react-navigation/native";
 const PodcastsScreen = () => {
   // State to track focused elements
   const [focusedPodcast, setFocusedPodcast] = useState(null);
-
+  const navigation = useNavigation();
   const renderItem = ({ item }) => {
     const imageUrl = item?.coverImage ?? '';
     return (
@@ -25,6 +25,7 @@ const PodcastsScreen = () => {
         onFocus={() => setFocusedPodcast(item?.id)}
         onBlur={() => setFocusedPodcast(null)}
         underlayColor="transparent"
+        onPress={() => navigation.navigate("PodcastEpisodes", item)}
         style={styles.videoContainer}
       >
         <View style={{ flex: 1 }}>

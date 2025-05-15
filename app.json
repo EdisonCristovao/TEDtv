@@ -32,7 +32,8 @@
           "supportsBackgroundPlayback": true,
           "supportsPictureInPicture": true
         }
-      ]
+      ],
+      "expo-audio"
     ],
     "newArchEnabled": true,
     "name": "TEDtv",

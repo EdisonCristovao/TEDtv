@@ -10,9 +10,6 @@ export const GoBackConfiguration: React.FC = () => {
   const handleBackPress = useCallback(() => {
     if (navigation.canGoBack()) {
       navigation.goBack();
-      if (isMenuOpen) {
-        console.log("Menu is open during back navigation");
-      }
     }
   }, [navigation, isMenuOpen]);
 

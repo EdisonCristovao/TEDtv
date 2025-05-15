@@ -26,7 +26,6 @@ class RemoteControlManager implements RemoteControlManagerInterface {
   private handleKeyDown = (keyEvent: { keyCode: number }): void => {
     const mappedKey = KEY_CODE_MAPPING[keyEvent.keyCode];
     if (mappedKey) {
-      console.log(`Key pressed: ${mappedKey}`);
       this.eventEmitter.emit("keyDown", mappedKey);
     }
   };
@@ -35,13 +34,11 @@ class RemoteControlManager implements RemoteControlManagerInterface {
     listener: (event: SupportedKeys) => void
   ): ((event: SupportedKeys) => void) => {
     this.eventEmitter.on("keyDown", listener);
-    console.log("Key listener added");
     return listener;
   };
 
   removeKeydownListener = (listener: (event: SupportedKeys) => void): void => {
     this.eventEmitter.off("keyDown", listener);
-    console.log("Key listener removed");
   };
 
   emitKeyDown = (key: SupportedKeys): void => {
