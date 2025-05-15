@@ -17,7 +17,7 @@ export default function TalkCard({
   isSquare = false,
 }) {
   return (
-    <SpatialNavigationFocusableView onSelect={onSelect}>
+    <SpatialNavigationFocusableView onSelect={onSelect} onFocus={onFocus}>
       {({ isFocused }) => (
         <TouchableHighlight style={styles.container}>
           <>
