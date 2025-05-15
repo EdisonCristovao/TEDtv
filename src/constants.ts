@@ -1,3 +1,5 @@
+import { Platform } from "react-native";
+
 export const ROUTES = {
   Home: 'Home',
   Search: 'Search',
@@ -7,3 +9,4 @@ export const ROUTES = {
   MyLibrary: 'MyLibrary',
 }
 
+export const isIOS = Platform.OS === 'ios'; 

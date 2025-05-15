@@ -1,5 +1,4 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import { StyleSheet, View } from "react-native";
 import VideoResolution from "../screens/Settings/VideoResolution";
@@ -50,7 +49,7 @@ const drawerItems = [
 
 const DrawerStack = () => {
   return (
-    <GestureHandlerRootView style={{ flex: 1, backgroundColor: "black", paddingTop: 40 }}>
+    <View style={{ flex: 1, backgroundColor: "black", paddingTop: 40 }}>
       <DefaultHeader title="Settings" />
       <Drawer.Navigator
         id={undefined}
@@ -78,7 +77,7 @@ const DrawerStack = () => {
       >
         <Drawer.Screen name="VideoResolution" component={VideoResolution} />
       </Drawer.Navigator>
-    </GestureHandlerRootView>
+    </View>
   )
 }
 

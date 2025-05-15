@@ -28,13 +28,15 @@
     ],
     "android": {
       "splash": {
-        "image": "./src/assets/images/icon-1920x720.png"
+        "image": "./src/assets/images/icon-1920x720.png",
+        "backgroundColor": "#111111"
       },
       "package": "com.anonymous.TEDtv"
     },
     "ios": {
       "splash": {
-        "image": "./src/assets/images/icon-1920x720.png"
+        "image": "./src/assets/images/icon-1920x720.png",
+        "backgroundColor": "#111111"
       },
       "bundleIdentifier": "com.anonymous.TEDtv"
     },

@@ -1,17 +1,14 @@
 import { useCallback } from "react";
 import {
   createDrawerNavigator,
-  DrawerContentScrollView,
 } from "@react-navigation/drawer";
 import {
   DrawerActions,
   NavigationContainerProps,
   NavigationContainerRefWithCurrent,
-  useNavigation,
   useRoute,
 } from "@react-navigation/native";
 import { Directions, SpatialNavigationRoot } from "react-tv-space-navigation";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import HomeScreen from "../screens/HomeScreen";
 import { useMenuContext } from "../contexts/MenuContext";
@@ -37,31 +34,29 @@ const DrawerStack = () => {
   );
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <SpatialNavigationRoot
-        isActive={isMenuOpen}
-        onDirectionHandledWithoutMovement={onDirectionHandledWithoutMovement}
+    <SpatialNavigationRoot
+      isActive={isMenuOpen}
+      onDirectionHandledWithoutMovement={onDirectionHandledWithoutMovement}
+    >
+      <Drawer.Navigator
+        id={undefined}
+        drawerContent={DrawerContent}
+        layout={CustomDrawerLayout}
+        defaultStatus="closed"
+        screenOptions={{
+          headerShown: false,
+          drawerType: "front",
+          overlayColor: "transparent",
+          drawerStyle: {
+            width: "100%",
+            borderRightWidth: 0,
+            backgroundColor: "transparent",
+          },
+        }}
       >
-        <Drawer.Navigator
-          id={undefined}
-          drawerContent={DrawerContent}
-          layout={CustomDrawerLayout}
-          defaultStatus="closed"
-          screenOptions={{
-            headerShown: false,
-            drawerType: "front",
-            overlayColor: "transparent",
-            drawerStyle: {
-              width: "100%",
-              borderRightWidth: 0,
-              backgroundColor: "transparent",
-            },
-          }}
-        >
-          <Drawer.Screen name="HomeScreen" component={HomeScreen} />
-        </Drawer.Navigator>
-      </SpatialNavigationRoot>
-    </GestureHandlerRootView>
+        <Drawer.Screen name="HomeScreen" component={HomeScreen} />
+      </Drawer.Navigator>
+    </SpatialNavigationRoot>
   );
 };
 

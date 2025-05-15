@@ -1,21 +1,20 @@
 import React, { useEffect, useCallback } from "react";
-import { useRouter } from "expo-router";
 import RemoteControlManager from "./RemoteControlManager";
 import { SupportedKeys } from "./SupportedKeys";
-// import { useMenuContext } from "../../components/MenuContext";
+import { useNavigation } from "@react-navigation/native";
 
 export const GoBackConfiguration: React.FC = () => {
-  const router = useRouter();
+  const navigation = useNavigation();
   const { isOpen: isMenuOpen } = { isOpen: false };
 
   const handleBackPress = useCallback(() => {
-    if (router.canGoBack()) {
-      router.back();
+    if (navigation.canGoBack()) {
+      navigation.goBack();
       if (isMenuOpen) {
         console.log("Menu is open during back navigation");
       }
     }
-  }, [router, isMenuOpen]);
+  }, [navigation, isMenuOpen]);
 
   useEffect(() => {
     const remoteControlListener = (pressedKey: SupportedKeys) => {
