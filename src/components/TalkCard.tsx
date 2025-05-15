@@ -1,35 +1,44 @@
 import React from "react";
-import { View, Image, Text, StyleSheet } from "react-native";
+import {
+  View,
+  Image,
+  Text,
+  StyleSheet,
+  Pressable,
+  TouchableHighlight,
+} from "react-native";
 import { SpatialNavigationFocusableView } from "react-tv-space-navigation";
 import { scaledPixels } from "../hooks/useScale";
 import Typography from "./Typography";
 export default function TalkCard({ talk, onSelect, onFocus }) {
   return (
-    <SpatialNavigationFocusableView onSelect={onSelect} onFocus={onFocus}>
+    <SpatialNavigationFocusableView onSelect={onSelect}>
       {({ isFocused }) => (
-        <View style={styles.container}>
-          <View
-            style={[
-              styles.highlightThumbnail,
-              isFocused && styles.highlightThumbnailFocused,
-            ]}
-          >
-            <Image
-              source={{ uri: talk.headerImage }}
-              style={styles.headerImage}
-            />
-          </View>
+        <TouchableHighlight style={styles.container}>
+          <>
+            <View
+              style={[
+                styles.highlightThumbnail,
+                isFocused && styles.highlightThumbnailFocused,
+              ]}
+            >
+              <Image
+                source={{ uri: talk.headerImage }}
+                style={styles.headerImage}
+              />
+            </View>
 
-          <Typography variant="body1" color="grey" fontWeight="bold">
-            {talk.topic.toUpperCase()}
-          </Typography>
-          <Typography variant="h2" color="#fff">
-            {talk.title}
-          </Typography>
-          <Typography variant="body1" color="grey">
-            {talk.talker}
-          </Typography>
-        </View>
+            <Typography variant="body1" color="grey" fontWeight="bold">
+              {talk.topic.toUpperCase()}
+            </Typography>
+            <Typography variant="h2" color="#fff">
+              {talk.title}
+            </Typography>
+            <Typography variant="body1" color="grey">
+              {talk.talker}
+            </Typography>
+          </>
+        </TouchableHighlight>
       )}
     </SpatialNavigationFocusableView>
   );

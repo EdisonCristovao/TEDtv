@@ -1,168 +1,172 @@
-import { StyleSheet, FlatList, View, Image, Text } from "react-native";
-import React, { useCallback, useMemo, useRef, useState } from "react";
+import { View, Text, StyleSheet } from "react-native";
+import TedLogo from "../components/TedLogo";
+import HeaderTitle from "../components/HeaderTitle";
+import { scaledPixels } from "../hooks/useScale";
+import { LinearGradient } from "expo-linear-gradient";
 import {
-  SpatialNavigationRoot,
   SpatialNavigationScrollView,
   SpatialNavigationView,
-  Directions,
+  SpatialNavigationRoot,
 } from "react-tv-space-navigation";
-import { LinearGradient } from "expo-linear-gradient";
-import { scaledPixels } from "../hooks/useScale";
-import {
-  DrawerActions,
-  useIsFocused,
-  useNavigation,
-} from "@react-navigation/native";
+import { useCallback, useState } from "react";
 import TalkCard from "../components/TalkCard";
-import { useMenuContext } from "../contexts/MenuContext";
-import { NavigationProps } from "../navigation/types";
-interface CardData {
-  id: string;
-  title: string;
-  description: string;
-  headerImage: string;
-  movie: string;
-}
+import { NavigationProp, useNavigation } from "@react-navigation/native";
+import { MaterialIcons } from "@expo/vector-icons";
 
-export default function HomeScreen() {
+const MyLibrary = () => {
+  const navigation = useNavigation<NavigationProp<any>>();
   const [focusedIndex, setFocusedIndex] = useState(0);
-
-  const navigation = useNavigation<NavigationProps>();
-  const { isOpen: isMenuOpen, toggleMenu } = useMenuContext();
-  const isFocused = useIsFocused();
-
-  const isActive = isFocused && !isMenuOpen;
-
-  const focusedItem = useMemo(() => moviesData[focusedIndex], [focusedIndex]);
-
-  const renderHeader = useCallback(
-    () => (
-      <View style={styles.header}>
-        <Image
-          style={[styles.headerImage, { width: "80%", alignSelf: "flex-end" }]}
-          source={{
-            uri: focusedItem.headerImage,
-          }}
-          resizeMode="cover"
-        />
-        <LinearGradient
-          colors={[
-            "rgba(0,0,0,0.9)",
-            "rgba(0,0,0,0.7)",
-            "rgba(0,0,0,0.3)",
-            "transparent",
-          ]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
-          style={styles.gradientLeft}
-        />
-        <LinearGradient
-          colors={["rgb(0,0,0)", "rgba(0,0,0, 0.3)", "transparent"]}
-          locations={[0, 0.4, 1]}
-          start={{ x: 0, y: 1 }}
-          end={{ x: 0, y: 0 }}
-          style={styles.gradientBottom}
-        />
-        <View style={styles.headerTextContainer}>
-          <Text style={styles.headerTitle}>{focusedItem.title}</Text>
-          <Text style={styles.headerDescription}>
-            {focusedItem.description}
-          </Text>
-        </View>
-      </View>
-    ),
-    [
-      focusedItem.headerImage,
-      focusedItem.title,
-      focusedItem.description,
-      styles.header,
-      styles.gradientLeft,
-      styles.gradientBottom,
-    ]
-  );
 
   const renderScrollableRow = useCallback(
     (title: string) => {
       return (
         <View style={styles.highlightsContainer}>
-          <Text style={styles.highlightsTitle}>{title}</Text>
-          {/* <SpatialNavigationScrollView horizontal> */}
-          <SpatialNavigationView
-            direction="horizontal"
+          <View
             style={{
               flexDirection: "row",
-              gap: scaledPixels(10),
-              overflow: "scroll",
+              alignItems: "center",
             }}
           >
-            {moviesData.map((item, index) => (
-              <TalkCard
-                key={`${item.id}-${index}`}
-                talk={item}
-                onFocus={() => {
-                  setFocusedIndex(index);
-                }}
-                onSelect={() => {
-                  console.log("SELECTED", item.title);
-                  navigation.navigate("Details", {
-                    title: item.title,
-                    description: item.description,
-                    headerImage: item.headerImage,
-                    movie: item.movie,
-                  });
-                }}
-              />
-            ))}
-          </SpatialNavigationView>
-          {/* </SpatialNavigationScrollView> */}
+            <Text style={styles.highlightsTitle}>{title}</Text>
+            <MaterialIcons
+              name="keyboard-arrow-right"
+              size={48}
+              color="rgba(255, 255, 255, 0.75)"
+            />
+          </View>
+          <SpatialNavigationScrollView horizontal>
+            <SpatialNavigationView
+              direction="horizontal"
+              style={{
+                flexDirection: "row",
+                gap: scaledPixels(50),
+                overflow: "scroll",
+              }}
+            >
+              {moviesData.map((item, index) => (
+                <TalkCard
+                  key={`${item.id}-${index}`}
+                  talk={item}
+                  onFocus={() => {
+                    setFocusedIndex(index);
+                  }}
+                  onSelect={() => {
+                    navigation.navigate("Details", {
+                      title: item.title,
+                      description: item.description,
+                      headerImage: item.headerImage,
+                      movie: item.movie,
+                    });
+                  }}
+                />
+              ))}
+            </SpatialNavigationView>
+          </SpatialNavigationScrollView>
         </View>
       );
     },
-    [styles, styles.headerImage, styles.thumbnailText]
+    [styles]
   );
-
-  const onDirectionHandledWithoutMovement = useCallback(
-    (movement: Directions) => {
-      if (movement === "left" && focusedIndex === 0) {
-        navigation.dispatch(DrawerActions.openDrawer());
-        toggleMenu(true);
-      }
-    },
-    [toggleMenu, focusedIndex, navigation]
-  );
-
   return (
-    <SpatialNavigationRoot
-      isActive={isActive}
-      onDirectionHandledWithoutMovement={onDirectionHandledWithoutMovement}
-    >
+    <SpatialNavigationRoot>
       <View style={styles.container}>
-        {renderHeader()}
-        <SpatialNavigationScrollView
-          offsetFromStart={scaledPixels(60)}
-          style={styles.scrollContent}
-        >
-          {renderScrollableRow("Trending Movies")}
-          {renderScrollableRow("Classics")}
-          {renderScrollableRow("Hip and Modern")}
-        </SpatialNavigationScrollView>
+        <View style={styles.header}>
+          <View style={styles.headerLeft}>
+            <TedLogo />
+            <HeaderTitle title="My Library" />
+          </View>
+
+          <View style={styles.textContainer}>
+            <View style={[styles.textView, styles.textActive]}>
+              <Text style={styles.text}>All</Text>
+            </View>
+            <View style={[styles.textView]}>
+              <Text style={styles.text}>Keep Watching</Text>
+            </View>
+            <View style={[styles.textView]}>
+              <Text style={styles.text}>Keep Listening</Text>
+            </View>
+          </View>
+        </View>
+        <View style={styles.content}>
+          <LinearGradient
+            colors={["#7a1f1f", "transparent"]}
+            locations={[0.2, 1]}
+            start={{ x: 1, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={styles.gradientBar}
+          />
+          <SpatialNavigationScrollView
+            offsetFromStart={scaledPixels(60)}
+            style={styles.scrollContent}
+          >
+            {renderScrollableRow("Keep Watching")}
+            {renderScrollableRow("Keep Listening")}
+          </SpatialNavigationScrollView>
+        </View>
       </View>
     </SpatialNavigationRoot>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "black",
+    backgroundColor: "#000",
   },
-  scrollContent: {
+  header: {
+    paddingHorizontal: scaledPixels(50),
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: "black",
+    height: scaledPixels(100),
+    gap: 16,
+  },
+  headerLeft: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 16,
+  },
+  textContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: scaledPixels(32),
+    height: "100%",
+  },
+  text: {
+    color: "white",
+    fontSize: scaledPixels(24),
+    fontWeight: "bold",
+  },
+  textActive: {
+    marginTop: scaledPixels(5),
+    borderBottomWidth: scaledPixels(5),
+    borderColor: "red",
+  },
+  textView: {
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  content: {
     flex: 1,
-    marginVertical: scaledPixels(48),
-    paddingHorizontal: scaledPixels(20),
+    backgroundColor: "#000",
+  },
+  gradientBar: {
+    ...StyleSheet.absoluteFillObject,
+    position: "absolute",
+    left: 0,
+    top: 0,
+    width: "100%",
+    opacity: 0.35,
+    zIndex: 0,
+  },
+  highlightsContainer: {
+    paddingBottom: scaledPixels(10),
   },
   highlightsTitle: {
-    color: "#fff",
+    color: "rgba(255, 255, 255, 0.75)",
     fontSize: scaledPixels(34),
     fontWeight: "bold",
     marginBottom: scaledPixels(20),
@@ -171,103 +175,14 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 10,
   },
-  headerTitle: {
-    color: "#fff",
-    fontSize: scaledPixels(48),
-    fontWeight: "bold",
-    textShadowColor: "rgba(0, 0, 0, 0.75)",
-    textShadowOffset: { width: -1, height: 1 },
-    textShadowRadius: 10,
-  },
-  headerDescription: {
-    color: "#fff",
-    fontSize: scaledPixels(24),
-    fontWeight: "500",
-    paddingTop: scaledPixels(16),
-    textShadowColor: "rgba(0, 0, 0, 0.75)",
-    textShadowOffset: { width: -1, height: 1 },
-    textShadowRadius: 10,
-  },
-  thumbnailTextContainer: {
-    position: "absolute",
-    bottom: scaledPixels(10),
-    left: scaledPixels(10),
-    right: scaledPixels(10),
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    padding: scaledPixels(5),
-    borderRadius: scaledPixels(3),
-  },
-  thumbnailText: {
-    color: "#fff",
-    fontSize: scaledPixels(18),
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-  highlightThumbnail: {
-    width: scaledPixels(400),
-    height: scaledPixels(240),
-    marginRight: scaledPixels(10),
-    backgroundColor: "rgba(255, 255, 255, 0.1)",
-    borderRadius: scaledPixels(5),
-  },
-  highlightThumbnailFocused: {
-    borderColor: "#fff",
-    borderWidth: scaledPixels(4),
-  },
-  highlightsContainer: {
-    padding: scaledPixels(10),
-  },
-  thumbnailPlaceholder: {
-    backgroundColor: "rgba(255, 255, 255, 0.2)",
-    width: "100%",
-    height: "100%",
-    borderRadius: scaledPixels(5),
-  },
-  header: {
-    width: "100%",
-    height: scaledPixels(400),
-    position: "relative",
-  },
-  headerImage: {
-    width: "100%",
-    height: "100%",
-    resizeMode: "cover",
-  },
-  gradientLeft: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    height: "100%",
-  },
-  gradientBottom: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    bottom: 0,
-    height: "15%",
-  },
-  headerTextContainer: {
-    position: "absolute",
-    left: scaledPixels(40), // Add left padding
-    top: 0,
-    bottom: 0,
-    justifyContent: "center", // Center vertically
-    width: "50%", // Limit width to prevent overlap with right side
-  },
-  highlightsList: {
-    paddingLeft: scaledPixels(20),
-  },
-  cardImage: {
-    width: "100%",
-    height: "70%",
-    borderTopLeftRadius: scaledPixels(10),
-    borderTopRightRadius: scaledPixels(10),
-  },
-  sidebar: {
-    width: scaledPixels(200),
+  scrollContent: {
+    flex: 1,
+    marginVertical: scaledPixels(48),
+    paddingHorizontal: scaledPixels(50),
   },
 });
+
+export default MyLibrary;
 
 const moviesData = [
   {

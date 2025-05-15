@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -6,17 +6,27 @@ import {
   Image,
   FlatList,
   TouchableHighlight,
-  TouchableOpacity,
   SafeAreaView,
-  StatusBar,
+  TextInput,
 } from "react-native";
 import { MOCK_SEARCH_RESULTS } from "../mock/search";
+import { useNavigation } from "@react-navigation/native";
+import HeaderTitle from "../components/HeaderTitle";
+import TedLogo from "../components/TedLogo";
+import { scaledPixels } from "../hooks/useScale";
+import { MaterialIcons } from "@expo/vector-icons";
+import { NavigationProps } from "../navigation/types";
+// Create a typed navigation hook
 
 const SearchScreen = () => {
-  // State to track focused elements
+  const navigation = useNavigation<NavigationProps>();
   const [focusedVideo, setFocusedVideo] = useState(null);
   const [focusedKey, setFocusedKey] = useState(null);
   const [searchText, setSearchText] = useState("");
+
+  const filteredTalks = MOCK_SEARCH_RESULTS.filter((talk) =>
+    talk.title.toLowerCase().includes(searchText.toLowerCase())
+  );
 
   // Keyboard layout
   const keyboard = [
@@ -26,7 +36,11 @@ const SearchScreen = () => {
     ["S", "T", "U", "V", "W", "X"],
     ["Y", "Z", "0", "1", "2", "3"],
     ["4", "5", "6", "7", "8", "9"],
-    ["SPACE", "DELETE", "CLEAR"],
+    [
+      { key: "SPACE", icon: "space-bar" }, // You can use MaterialIcons "space-bar"
+      { key: "DELETE", icon: "backspace" }, // You can use MaterialIcons "backspace"
+      { key: "CLEAR" },
+    ],
   ];
 
   // Handle keyboard key press
@@ -48,34 +62,53 @@ const SearchScreen = () => {
   };
 
   // Render a keyboard row
+
   const renderKeyboardRow = (row, rowIndex) => {
     return (
       <View key={`row-${rowIndex}`} style={styles.keyboardRow}>
-        {row.map((key) => (
-          <TouchableHighlight
-            key={key}
-            style={[
-              styles.key,
-              (key === "SPACE" || key === "DELETE" || key === "CLEAR") &&
-              styles.spaceKey,
-              focusedKey === key && styles.focusedKey,
-            ]}
-            onFocus={() => setFocusedKey(key)}
-            onBlur={() => setFocusedKey(null)}
-            onPress={() => handleKeyPress(key)}
-            underlayColor="#FFFFFF"
-            hasTVPreferredFocus={rowIndex === 0 && key === "A"}
-          >
-            <Text
+        {row.map((keyObj) => {
+          // Support both string and object keys
+          const key =
+            typeof keyObj === "string" ? keyObj : keyObj.key || keyObj;
+          const icon =
+            typeof keyObj === "object" && keyObj.icon ? keyObj.icon : null;
+
+          return (
+            <TouchableHighlight
+              key={key}
               style={[
-                styles.keyText,
-                focusedKey === key && styles.focusedKeyText,
+                styles.key,
+                (key === "SPACE" || key === "DELETE" || key === "CLEAR") &&
+                  styles.spaceKey,
+                focusedKey === key && styles.focusedKey,
               ]}
+              onFocus={() => setFocusedKey(key)}
+              onBlur={() => setFocusedKey(null)}
+              onPress={() => handleKeyPress(key)}
+              underlayColor="#FFFFFF"
+              hasTVPreferredFocus={rowIndex === 0 && key === "A"}
             >
-              {key}
-            </Text>
-          </TouchableHighlight>
-        ))}
+              <View style={{ alignItems: "center", justifyContent: "center" }}>
+                {icon ? (
+                  <MaterialIcons
+                    name={icon}
+                    size={28}
+                    color={focusedKey === key ? "#000" : "#fff"}
+                  />
+                ) : (
+                  <Text
+                    style={[
+                      styles.keyText,
+                      focusedKey === key && styles.focusedKeyText,
+                    ]}
+                  >
+                    {key}
+                  </Text>
+                )}
+              </View>
+            </TouchableHighlight>
+          );
+        })}
       </View>
     );
   };
@@ -89,8 +122,17 @@ const SearchScreen = () => {
         onBlur={() => setFocusedVideo(null)}
         underlayColor="transparent"
         style={styles.videoContainer}
+        onPress={() => {
+          navigation.navigate("Details", {
+            movie:
+              "https://py.tedcdn.com/consus/projects/00/30/63/007/products/2017-guy-winch-007-fallback-15b39b68458aede8008f3e52cc91a342-1200k.mp4",
+            title: item.title,
+            description: item.description,
+            headerImage: imageUrl,
+          });
+        }}
       >
-        <View style={{ flex: 1 }}>
+        <View>
           <View
             style={[
               styles.videoImageContainer,
@@ -116,11 +158,19 @@ const SearchScreen = () => {
     <SafeAreaView style={styles.container}>
       {/* Header with TED logo and search bar */}
       <View style={styles.header}>
-        <Text style={styles.logo}>TED</Text>
+        <TedLogo />
+        <HeaderTitle title="Search" />
         <View style={styles.searchBar}>
-          <Text style={styles.searchText}>
-            {searchText || "Search for a title..."}
-          </Text>
+          <TextInput
+            style={styles.searchText}
+            value={searchText}
+            onChangeText={setSearchText}
+            placeholder="Search for a title..."
+            placeholderTextColor="#888"
+            underlineColorAndroid="transparent"
+            editable={false}
+            focusable={false}
+          />
         </View>
       </View>
       <View style={{ flex: 1, flexDirection: "row", gap: 16 }}>
@@ -132,9 +182,18 @@ const SearchScreen = () => {
         {/* Videos grid */}
         <View style={{ flex: 1, gap: 10 }}>
           <FlatList
-            data={MOCK_SEARCH_RESULTS}
-            renderItem={renderVideoItem}
-            keyExtractor={(item) => item.id}
+            data={
+              filteredTalks.length === 0
+                ? []
+                : [
+                    ...filteredTalks,
+                    ...Array((4 - (filteredTalks.length % 4)) % 4).fill(null),
+                  ]
+            }
+            renderItem={({ item }) =>
+              item ? renderVideoItem({ item }) : <View style={{ flex: 1 }} />
+            }
+            keyExtractor={(item, index) => (item ? item.id : `empty-${index}`)}
             numColumns={4}
             columnWrapperStyle={styles.videoRow}
           />
@@ -148,51 +207,53 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#000000",
-    paddingHorizontal: 20,
+    paddingHorizontal: scaledPixels(20),
   },
   header: {
     flexDirection: "row",
     alignItems: "center",
-    paddingBottom: 40,
+    paddingBottom: scaledPixels(40),
     gap: 16,
   },
   logo: {
     color: "#FF0000",
-    fontSize: 28,
+    fontSize: scaledPixels(28),
     fontWeight: "bold",
-    marginRight: 15,
+    marginRight: scaledPixels(15),
   },
   searchBar: {
     flex: 1,
-    borderBottomWidth: 1,
-    borderBottomColor: "#444",
-    paddingVertical: 8,
+    borderWidth: 1,
+    borderColor: "#444",
+    paddingVertical: scaledPixels(16),
+    borderRadius: scaledPixels(8),
   },
   searchText: {
     color: "#FFFFFF",
-    fontSize: 16,
+    fontSize: scaledPixels(16),
   },
   keyboardArea: {},
   keyboardRow: {
     flexDirection: "row",
     justifyContent: "flex-start",
-    marginBottom: 10,
+    marginBottom: scaledPixels(10),
   },
   key: {
-    width: 40,
-    height: 40,
+    width: scaledPixels(40),
+    height: scaledPixels(40),
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#333",
-    borderRadius: 5,
-    marginRight: 10,
+    borderRadius: scaledPixels(5),
+    marginRight: scaledPixels(10),
   },
   spaceKey: {
-    width: 90,
+    width: scaledPixels(90),
   },
   keyText: {
     color: "#FFFFFF",
-    fontSize: 16,
+    fontSize: scaledPixels(16),
+    fontWeight: "bold",
   },
   focusedKey: {
     backgroundColor: "#FFFFFF",
@@ -205,8 +266,8 @@ const styles = StyleSheet.create({
   },
   videoRow: {
     justifyContent: "space-evenly",
-    marginBottom: 20,
-    gap: 20,
+    marginBottom: scaledPixels(20),
+    gap: scaledPixels(20),
   },
   videoContainer: {
     flex: 1,
@@ -214,14 +275,14 @@ const styles = StyleSheet.create({
   videoImageContainer: {
     width: "100%",
     aspectRatio: 16 / 9,
-    borderRadius: 5,
+    borderRadius: scaledPixels(5),
     overflow: "hidden",
-    marginBottom: 8,
+    marginBottom: scaledPixels(8),
   },
   focusedVideo: {
     borderWidth: 3,
     borderColor: "#FFFFFF",
-    borderRadius: 5,
+    borderRadius: scaledPixels(5),
   },
   videoImage: {
     width: "100%",
@@ -229,13 +290,13 @@ const styles = StyleSheet.create({
   },
   videoTitle: {
     color: "#FFFFFF",
-    fontSize: 18,
+    fontSize: scaledPixels(18),
     fontWeight: "bold",
-    marginBottom: 4,
+    marginBottom: scaledPixels(4),
   },
   videoSpeaker: {
     color: "#696969",
-    fontSize: 14,
+    fontSize: scaledPixels(14),
     fontWeight: "bold",
   },
 });

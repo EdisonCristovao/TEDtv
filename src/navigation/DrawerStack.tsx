@@ -1,13 +1,19 @@
 import { useCallback } from "react";
-import { createDrawerNavigator, DrawerContentScrollView } from "@react-navigation/drawer";
-import { DrawerActions, NavigationContainerProps, NavigationContainerRefWithCurrent, useNavigation, useRoute } from "@react-navigation/native";
+import {
+  createDrawerNavigator,
+  DrawerContentScrollView,
+} from "@react-navigation/drawer";
+import {
+  DrawerActions,
+  NavigationContainerProps,
+  NavigationContainerRefWithCurrent,
+  useNavigation,
+  useRoute,
+} from "@react-navigation/native";
 import { Directions, SpatialNavigationRoot } from "react-tv-space-navigation";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import HomeScreen from "../screens/HomeScreen";
-import Sidebar from "../components/Sidebar";
-import { StyleSheet, View } from "react-native";
-import { scaledPixels } from "../hooks/useScale";
 import { useMenuContext } from "../contexts/MenuContext";
 import CustomDrawerLayout from "../components/CustomDrawerLayout";
 import DrawerContent from "../components/DrawerContent";
@@ -16,21 +22,26 @@ const Drawer = createDrawerNavigator();
 
 const DrawerStack = () => {
   const { isOpen: isMenuOpen, toggleMenu } = useMenuContext();
-  const { navigationRef } = useRoute().params as { navigationRef: NavigationContainerRefWithCurrent<NavigationContainerProps> };
+  const { navigationRef } = useRoute().params as {
+    navigationRef: NavigationContainerRefWithCurrent<NavigationContainerProps>;
+  };
 
-  const onDirectionHandledWithoutMovement = useCallback((movement: Directions) => {
-    if (movement === "right") {
-      navigationRef.current?.dispatch(DrawerActions.closeDrawer());
-      toggleMenu(false);
-    }
-  }, [toggleMenu, navigationRef]);
-
+  const onDirectionHandledWithoutMovement = useCallback(
+    (movement: Directions) => {
+      if (movement === "right") {
+        navigationRef.current?.dispatch(DrawerActions.closeDrawer());
+        toggleMenu(false);
+      }
+    },
+    [toggleMenu, navigationRef]
+  );
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SpatialNavigationRoot
         isActive={isMenuOpen}
-        onDirectionHandledWithoutMovement={onDirectionHandledWithoutMovement}>
+        onDirectionHandledWithoutMovement={onDirectionHandledWithoutMovement}
+      >
         <Drawer.Navigator
           id={undefined}
           drawerContent={DrawerContent}
@@ -51,7 +62,7 @@ const DrawerStack = () => {
         </Drawer.Navigator>
       </SpatialNavigationRoot>
     </GestureHandlerRootView>
-  )
-}
+  );
+};
 
 export default DrawerStack;

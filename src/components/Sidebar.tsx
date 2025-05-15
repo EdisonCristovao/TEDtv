@@ -1,4 +1,11 @@
-import { View, Text, StyleSheet, Button, Pressable, Animated } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  Pressable,
+  Animated,
+} from "react-native";
 import SettingsIcon from "./svg/SettingsIcon";
 import UserIcon from "./svg/UserIcon";
 import SearchIcon from "./svg/SearchIcon";
@@ -17,12 +24,36 @@ const COLLAPSED_WIDTH = 90;
 const EXPANDED_WIDTH = 252;
 
 export const drawerItems = [
-  { Icon: ({ color }: { color: string }) => <UserIcon color={color} />, route: ROUTES.Profile, label: 'Profile' },
-  { Icon: ({ color }: { color: string }) => <SearchIcon color={color} />, route: ROUTES.Search, label: 'Search' },
-  { Icon: ({ color }: { color: string }) => <HomeIcon color={color} />, route: ROUTES.Home, label: 'Home' },
-  { Icon: ({ color }: { color: string }) => <MyLibraryIcon color={color} />, route: ROUTES.MyLibrary, label: 'My Library' },
-  { Icon: ({ color }: { color: string }) => <PodcastsIcon color={color} />, route: ROUTES.Podcasts, label: 'Podcasts' },
-  { Icon: ({ color }: { color: string }) => <SettingsIcon color={color} />, route: ROUTES.Settings, label: 'Settings' },
+  {
+    Icon: ({ color }: { color: string }) => <UserIcon color={color} />,
+    route: ROUTES.Profile,
+    label: "Profile",
+  },
+  {
+    Icon: ({ color }: { color: string }) => <SearchIcon color={color} />,
+    route: ROUTES.Search,
+    label: "Search",
+  },
+  {
+    Icon: ({ color }: { color: string }) => <HomeIcon color={color} />,
+    route: ROUTES.Home,
+    label: "Home",
+  },
+  {
+    Icon: ({ color }: { color: string }) => <MyLibraryIcon color={color} />,
+    route: ROUTES.MyLibrary,
+    label: "My Library",
+  },
+  {
+    Icon: ({ color }: { color: string }) => <PodcastsIcon color={color} />,
+    route: ROUTES.Podcasts,
+    label: "Podcasts",
+  },
+  {
+    Icon: ({ color }: { color: string }) => <SettingsIcon color={color} />,
+    route: ROUTES.Settings,
+    label: "Settings",
+  },
 ];
 
 export default function Sidebar() {
@@ -30,10 +61,10 @@ export default function Sidebar() {
   const widthAnim = useRef(new Animated.Value(COLLAPSED_WIDTH)).current;
   const navigation = useNavigation();
 
-  const handleMenuItemSelect = (item: { route: string, label: string }) => {
+  const handleMenuItemSelect = (item: { route: string; label: string }) => {
     toggleMenu(false);
     navigation.navigate(item.route as never);
-  }
+  };
 
   useEffect(() => {
     const toggleDrawer = () => {
@@ -50,19 +81,43 @@ export default function Sidebar() {
   return (
     <SpatialNavigationRoot isActive={isMenuOpen}>
       <Animated.View style={[styles.container, { width: widthAnim }]}>
-        <SidebarItem sidebarOpen={isMenuOpen} item={drawerItems[0]} handleMenuItemSelect={handleMenuItemSelect} />
+        <SidebarItem
+          sidebarOpen={isMenuOpen}
+          item={drawerItems[0]}
+          handleMenuItemSelect={handleMenuItemSelect}
+        />
         <View style={styles.menuItemsContainer}>
-          <SidebarItem sidebarOpen={isMenuOpen} item={drawerItems[1]} handleMenuItemSelect={handleMenuItemSelect} />
+          <SidebarItem
+            sidebarOpen={isMenuOpen}
+            item={drawerItems[1]}
+            handleMenuItemSelect={handleMenuItemSelect}
+          />
           <DefaultFocus>
-            <SidebarItem sidebarOpen={isMenuOpen} item={drawerItems[2]} handleMenuItemSelect={handleMenuItemSelect} />
+            <SidebarItem
+              sidebarOpen={isMenuOpen}
+              item={drawerItems[2]}
+              handleMenuItemSelect={handleMenuItemSelect}
+            />
           </DefaultFocus>
-          <SidebarItem sidebarOpen={isMenuOpen} item={drawerItems[3]} handleMenuItemSelect={handleMenuItemSelect} />
-          <SidebarItem sidebarOpen={isMenuOpen} item={drawerItems[4]} handleMenuItemSelect={handleMenuItemSelect} />
+          <SidebarItem
+            sidebarOpen={isMenuOpen}
+            item={drawerItems[3]}
+            handleMenuItemSelect={handleMenuItemSelect}
+          />
+          <SidebarItem
+            sidebarOpen={isMenuOpen}
+            item={drawerItems[4]}
+            handleMenuItemSelect={handleMenuItemSelect}
+          />
         </View>
-        <SidebarItem sidebarOpen={isMenuOpen} item={drawerItems[5]} handleMenuItemSelect={handleMenuItemSelect} />
+        <SidebarItem
+          sidebarOpen={isMenuOpen}
+          item={drawerItems[5]}
+          handleMenuItemSelect={handleMenuItemSelect}
+        />
       </Animated.View>
     </SpatialNavigationRoot>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -77,5 +132,5 @@ const styles = StyleSheet.create({
   menuItemsContainer: {
     flexDirection: "column",
     gap: scaledPixels(32),
-  }
+  },
 });

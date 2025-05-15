@@ -20,6 +20,8 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Adam Aleksic",
     duration: 835,
     videoContext: "TEDxPenn",
+    description:
+      'Gen Z slang is rife with new words like "unalive," "skibidi" and "rizz." Where do these words come from — and how do they get popular so fast? Linguist Adam Aleksic explores how the forces of social media algorithms are reshaping the way people talk and view their very own identities.',
     canonicalUrl:
       "https://www.ted.com/talks/adam_aleksic_are_we_cooked_how_social_media_shapes_your_language",
     viewedCount: 0,
@@ -81,9 +83,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Pinky Cole",
     duration: 1097,
     videoContext: "TEDNext 2024",
+    description:
+      'At the plant-based burger chain Slutty Vegan, Pinky Cole is flipping the script on vegan food with bold style. In conversation with host of "TED Radio Hour" Manoush Zomorodi, she shares the highs and lows of her entrepreneurial journey, from her roots in Baltimore to the grease fire that took her first storefront in Harlem. Learn more about the authenticity, resilience and community that went into building a multimillion-dollar vegan food empire.',
     canonicalUrl:
       "https://www.ted.com/talks/pinky_cole_how_i_make_vegan_food_sexy",
-    viewedCount: 0,
+    viewedCount: 112602,
     tedcomPercentage: "0.004",
     youtubePercentage: "0.0",
     podcastsPercentage: "0.996",
@@ -139,9 +143,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Duncan Keegan",
     duration: 588,
     videoContext: "TED2025",
+    description:
+      "Duncan Keegan doesn't consider himself a poet, but this deeply beautiful talk shows otherwise. With simple grace and quiet eloquence, he celebrates family, connection and togetherness, often most called for at the hardest of times.",
     canonicalUrl:
       "https://www.ted.com/talks/duncan_keegan_the_poetry_of_family",
-    viewedCount: 184022,
+    viewedCount: 209493,
     tedcomPercentage: "0.027",
     youtubePercentage: "0.0",
     podcastsPercentage: "0.969",
@@ -200,9 +206,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Avni Patel Thompson",
     duration: 512,
     videoContext: "TED2025",
+    description:
+      "Tech innovator Avni Patel Thompson designed an app to shield busy parents from the chaos of scheduling school pickups, coordinating playdates, planning birthday parties and more — but as the product developed, something felt off. What might we lose when AI smooths over the friction of everyday family life? Patel Thompson explores her surprising discovery and how you can leverage AI to connect more deeply with the ones you love.",
     canonicalUrl:
       "https://www.ted.com/talks/avni_patel_thompson_can_ai_help_with_the_chaos_of_family_life",
-    viewedCount: 199318,
+    viewedCount: 216940,
     tedcomPercentage: "0.021",
     youtubePercentage: "0.0",
     podcastsPercentage: "0.973",
@@ -258,9 +266,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Andy Laats",
     duration: 600,
     videoContext: "TED2025",
+    description:
+      "Andy Laats had the textbook fairytale family setup ... a great job, a happy marriage, three wonderful kids and everything going for them. Until one day, they didn't anymore. In this tender, wise and unexpectedly funny talk, Laats describes the profound lessons he's learned over the years as a father, offering insights that will resonate with anyone who's ever had any kind of family.",
     canonicalUrl:
       "https://www.ted.com/talks/andy_laats_a_parent_s_guide_to_raising_kids_after_loss",
-    viewedCount: 220362,
+    viewedCount: 229483,
     tedcomPercentage: "0.039",
     youtubePercentage: "0.0",
     podcastsPercentage: "0.958",
@@ -307,9 +317,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Ndinini Kimesera Sikar",
     duration: 565,
     videoContext: "TED2025",
+    description:
+      '"Do you know what you want to preserve for the next generation?" asks community leader Ndinini Kimesera Sikar. Drawing on her experience growing up in a family of 38 in a traditional Maasai village in Tanzania — where every chore was shared, every story was sung and belonging meant survival — she explores how we can blend the old with the new to build the life we want, encouraging us all to ponder our list of "must-haves" for the future.',
     canonicalUrl:
       "https://www.ted.com/talks/ndinini_kimesera_sikar_you_are_the_bridge_to_the_next_generation",
-    viewedCount: 230571,
+    viewedCount: 237251,
     tedcomPercentage: "0.016",
     youtubePercentage: "0.0",
     podcastsPercentage: "0.98",
@@ -362,9 +374,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Sarah Blaffer Hrdy",
     duration: 508,
     videoContext: "TED2025",
+    description:
+      "AI is transforming the way we work — could it also reshape what makes us human? In this quick and insightful talk, evolutionary anthropologist Sarah Blaffer Hrdy explores how the human brain was shaped by millions of years of shared childcare and mutually supportive communities, asking a provocative question: If robots help raise the next generation, will we lose the empathy that defines us?",
     canonicalUrl:
       "https://www.ted.com/talks/sarah_blaffer_hrdy_are_we_still_human_if_robots_help_raise_our_babies",
-    viewedCount: 247821,
+    viewedCount: 252553,
     tedcomPercentage: "0.025",
     youtubePercentage: "0.0",
     podcastsPercentage: "0.968",
@@ -423,9 +437,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Alison Darcy",
     duration: 815,
     videoContext: "TED2025",
+    description:
+      "Who do you turn to when panic strikes in the middle of the night — and can AI help? Psychologist Alison Darcy shares the vision behind Woebot, a mental health chatbot designed to support people in tough moments, especially when no one else is around. In conversation with author and podcaster Kelly Corrigan, Darcy explores what we should expect and demand from ethically designed, psychological AIs.",
     canonicalUrl:
       "https://www.ted.com/talks/alison_darcy_the_mental_health_ai_chatbot_made_for_real_life",
-    viewedCount: 9475,
+    viewedCount: 10100,
     tedcomPercentage: "0.845",
     youtubePercentage: "0.0",
     podcastsPercentage: "0.0",
@@ -475,9 +491,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Navied Mahdavian",
     duration: 484,
     videoContext: "TEDNext 2024",
+    description:
+      "With just a few lines, cartoons can say so much with so little. In a moving talk, cartoonist Navied Mahdavian shares his process for distilling huge concepts into drawings on the page — and shows how his work helped him grieve the death of his beloved grandmother, flaws and all.",
     canonicalUrl:
       "https://www.ted.com/talks/navied_mahdavian_how_art_helped_me_grapple_with_grief",
-    viewedCount: 236966,
+    viewedCount: 238436,
     tedcomPercentage: "0.034",
     youtubePercentage: "0.0",
     podcastsPercentage: "0.958",
@@ -530,9 +548,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Marielle Remillard",
     duration: 745,
     videoContext: "TED@BCG",
+    description:
+      "The energy grid of the future demands a massive amount of materials: billions of solar panels, millions of wind turbines and more. Climate strategist Marielle Remillard reveals why there may be critical shortages ahead — and breaks down how this could also be the biggest business opportunity since the Industrial Revolution.",
     canonicalUrl:
       "https://www.ted.com/talks/marielle_remillard_the_economic_opportunity_hidden_in_the_climate_transition",
-    viewedCount: 4715,
+    viewedCount: 5072,
     tedcomPercentage: "0.643",
     youtubePercentage: "0.0",
     podcastsPercentage: "0.0",
@@ -588,9 +608,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Rob Bredow",
     duration: 935,
     videoContext: "TED2025",
+    description:
+      "Jedi master of visual effects Rob Bredow, known for his work at Industrial Light & Magic and Lucasfilm, takes us on a cinematic journey through the evolution of visual effects, with behind-the-scenes stories from the making of fan favorites like “Jurassic Park,” “Star Wars,” “Indiana Jones” and more. He shares how artist-driven innovation continues to blend old and new technology, offering hope that AI won’t replace creatives but instead will empower artists to create new, mind-blowing wonders for the big screen.",
     canonicalUrl:
       "https://www.ted.com/talks/rob_bredow_star_wars_changed_visual_effects_ai_is_doing_it_again",
-    viewedCount: 351461,
+    viewedCount: 358612,
     tedcomPercentage: "0.036",
     youtubePercentage: "0.296",
     podcastsPercentage: "0.664",
@@ -655,9 +677,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Rich Benjamin",
     duration: 2603,
     videoContext: "A TED Original Podcast",
+    description:
+      'Rich Benjamin is a cultural critic, anthropologist and author of the new memoir "Talk to Me: Lessons from a Family Forged by History." In this interview with "TED Talks Daily" podcast host Elise Hu, Benjamin discusses the power of history in shaping generations — and how the intimate search for answers in his own family’s past helped him tell the story of two nations. (This interview is part of the TED Talks Daily Book Club series, recorded live for the TED Membership program. TED Members are invited to attend live recordings and participate in Q&As with authors. To join in on the fun, sign up at go.ted.com/membership.)',
     canonicalUrl:
       "https://www.ted.com/talks/rich_benjamin_ted_talks_daily_book_club_talk_to_me",
-    viewedCount: 282497,
+    viewedCount: 282885,
     tedcomPercentage: "0.004",
     youtubePercentage: "0.0",
     podcastsPercentage: "0.995",
@@ -710,9 +734,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Tristan Harris",
     duration: 914,
     videoContext: "TED2025",
+    description:
+      "Technologist Tristan Harris has an urgent question: What if the way we’re deploying the world’s most powerful technology — artificial intelligence — isn’t inevitable, but a choice? In this eye-opening talk, he calls on us to learn from the mistakes of social media’s catastrophic rollout and confront the predictable dangers of reckless AI development, offering a “narrow path” where power is matched with responsibility, foresight and wisdom.",
     canonicalUrl:
       "https://www.ted.com/talks/tristan_harris_why_ai_is_our_ultimate_test_and_greatest_invitation",
-    viewedCount: 345708,
+    viewedCount: 353540,
     tedcomPercentage: "0.094",
     youtubePercentage: "0.364",
     podcastsPercentage: "0.536",
@@ -762,9 +788,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Ian Bremmer",
     duration: 3262,
     videoContext: "TED Explains the World with Ian Bremmer",
+    description:
+      "It’s been an eventful first 100 days for the second Trump administration, which has featured tariff turmoil, shifting foreign policy and the upheaval of prior geopolitical relationships. In this discussion, political scientist Ian Bremmer separates signal from noise in the biggest stories of the day, evaluating the global economy, US-China relations, the future of Ukraine and Europe, immigration and more. (This interview, hosted by TED’s Helen Walters, was recorded on April 29, 2025.)  ",
     canonicalUrl:
       "https://www.ted.com/talks/ian_bremmer_where_in_the_world_is_trump_taking_us",
-    viewedCount: 529443,
+    viewedCount: 537508,
     tedcomPercentage: "0.028",
     youtubePercentage: "0.499",
     podcastsPercentage: "0.468",
@@ -811,9 +839,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Davonte Green",
     duration: 702,
     videoContext: "TEDxInglewood",
+    description:
+      'What does it actually mean to be a "real man" these days? In a personal talk packed with actionable advice, youth advocate Davonte Green challenges age-old stereotypes about masculinity, showing that emotional intelligence and self-control — not aggression — are the keys to moving through the world with confidence and strength.',
     canonicalUrl:
       "https://www.ted.com/talks/davonte_green_a_new_vision_of_healthy_masculinity",
-    viewedCount: 296729,
+    viewedCount: 298536,
     tedcomPercentage: "0.024",
     youtubePercentage: "0.0",
     podcastsPercentage: "0.973",
@@ -866,9 +896,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Aditi Nerurkar",
     duration: 3441,
     videoContext: "TED Membership",
+    description:
+      "Stress isn’t all bad. In fact, the right kind can fuel growth instead of burnout. In this actionable discussion, physician and author Aditi Nerurkar shares tips for managing your stress, boosting your confidence and increasing your resilience. Discover how to spot your stress signals before they spiral — and turn pressure into progress. (This live conversation was hosted by TED’s Whitney Pennington Rodgers and was part of a TED Membership event. Visit ted.com/membership to support TED today and join more exclusive events like this one.)",
     canonicalUrl:
       "https://www.ted.com/talks/aditi_nerurkar_feeling_stressed_the_answer_isn_t_to_just_relax",
-    viewedCount: 333033,
+    viewedCount: 335570,
     tedcomPercentage: "0.02",
     youtubePercentage: "0.0",
     podcastsPercentage: "0.974",
@@ -924,9 +956,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Sarah Crawford-Bohl",
     duration: 711,
     videoContext: "TEDxRRU",
+    description:
+      "What stops you from speaking up when it matters most? Healthcare leader Sarah Crawford-Bohl offers a practical, compassionate framework to have difficult conversations with clarity and heart — and shows how it can lead to stronger teams and real impact.",
     canonicalUrl:
       "https://www.ted.com/talks/sarah_crawford_bohl_how_to_speak_up_even_when_you_don_t_want_to",
-    viewedCount: 302885,
+    viewedCount: 304709,
     tedcomPercentage: "0.045",
     youtubePercentage: "0.0",
     podcastsPercentage: "0.936",
@@ -973,9 +1007,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Palmer Luckey",
     duration: 916,
     videoContext: "TED2025",
+    description:
+      'AI in warfare is no longer hypothetical; it\'s inevitable, says Palmer Luckey, an inventor and founder of the defense technology company Anduril Industries. He takes us inside the high-tech arms race to build AI-powered weapons, "killer robots" and autonomous fighter jets at scale — and makes the counterintuitive case for why this may be the surest path to deterrence and lasting peace. (Followed by Q&A with technologist Bilawal Sidhu)',
     canonicalUrl:
       "https://www.ted.com/talks/palmer_luckey_the_ai_arsenal_that_could_stop_world_war_iii",
-    viewedCount: 804568,
+    viewedCount: 811923,
     tedcomPercentage: "0.031",
     youtubePercentage: "0.628",
     podcastsPercentage: "0.338",
@@ -1031,9 +1067,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Carole Cadwalladr and Chris Anderson",
     duration: 2181,
     videoContext: "TED2025",
+    description:
+      "\"If you can't respect the basic fundamental underlying principles with which we order society — which is 'Do not steal' — then what are you left with?\" asks investigative journalist Carole Cadwalladr. Following her TED2025 talk, Cadwalladr is in conversation with Chris Anderson, head of TED, to warn about surveillance fascism. What happens when big Silicon Valley companies take over communication platforms and weaponize intellectual property against you? She suggests that when you feel powerless, it's often actually because you are powerful — and explores why it's so important to fight information chaos by supporting independent media and journalists.",
     canonicalUrl:
       "https://www.ted.com/talks/carole_cadwalladr_and_chris_anderson_can_big_tech_and_privacy_coexist",
-    viewedCount: 324074,
+    viewedCount: 325731,
     tedcomPercentage: "0.035",
     youtubePercentage: "0.125",
     podcastsPercentage: "0.834",
@@ -1101,9 +1139,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Marc Bamuthi Joseph and Wendy Whelan",
     duration: 579,
     videoContext: "TEDNext 2024",
+    description:
+      "Can art pave the way for a politically divided nation to move forward? Artist, cultural strategist and TED Fellow Marc Bamuthi Joseph reflects on the role of art, forgiveness and remembrance in the pursuit of public healing — especially at a time when trust is contested and community forums fractured. Wendy Whelan, associate artistic director of the New York City Ballet, joins him on stage for a rendition of “The Carnival of the Animals,” exploring how the cuckoo bird exemplifies the cycles of inaction that lead to injustice. It's more than a performance — it's a reckoning. ",
     canonicalUrl:
       "https://www.ted.com/talks/marc_bamuthi_joseph_and_wendy_whelan_the_role_of_art_and_forgiveness_in_democracy",
-    viewedCount: 273097,
+    viewedCount: 273713,
     tedcomPercentage: "0.018",
     youtubePercentage: "0.0",
     podcastsPercentage: "0.979",
@@ -1159,9 +1199,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Fenton Lutunatabua",
     duration: 463,
     videoContext: "TED Countdown: Overcoming Dilemmas in the Green Transition",
+    description:
+      "\"We are not drowning. We are fighting,\" says storyteller Fenton Lutunatabua, echoing the mantra of the climate activists he works with across the Pacific. He shares stories of the people and communities at the front lines of the climate crisis, proving they're not waiting to be saved — they're demanding action and putting up a fierce fight for the future.",
     canonicalUrl:
       "https://www.ted.com/talks/fenton_lutunatabua_the_climate_movement_needs_new_stories_here_s_mine",
-    viewedCount: 275983,
+    viewedCount: 276853,
     tedcomPercentage: "0.013",
     youtubePercentage: "0.0",
     podcastsPercentage: "0.984",
@@ -1214,9 +1256,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Xiye Bastida",
     duration: 710,
     videoContext: "TED2025",
+    description:
+      "Hope isn’t just a feeling, but a skill you can practice, explains climate activist Xiye Bastida. Taking cues from the resilience of nature, she shows why trusting Indigenous leaders who’ve protected the planet for generations can help turn despair about the climate into the momentum needed to ignite meaningful change. A powerful reminder that the fire in your heart is your greatest strength for creating a better future.",
     canonicalUrl:
       "https://www.ted.com/talks/xiye_bastida_your_inner_fire_is_your_greatest_strength",
-    viewedCount: 374764,
+    viewedCount: 376980,
     tedcomPercentage: "0.067",
     youtubePercentage: "0.123",
     podcastsPercentage: "0.798",
@@ -1266,9 +1310,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "HEAVY BOOTS",
     duration: 353,
     videoContext: "TEDNext 2024",
+    description:
+      "In this performance from dance theater company HEAVY BOOTS, seven dancers spin together like gears across the stage — a mesmerizing experimental piece evoking wonder, vulnerability and strength.",
     canonicalUrl:
       "https://www.ted.com/talks/heavy_boots_a_dance_that_turns_like_a_machine",
-    viewedCount: 2443,
+    viewedCount: 2543,
     tedcomPercentage: "0.871",
     youtubePercentage: "0.0",
     podcastsPercentage: "0.0",
@@ -1312,9 +1358,11 @@ export const MOCK_SEARCH_RESULTS = [
     presenterDisplayName: "Joshua Roman",
     duration: 1020,
     videoContext: "TED2024",
+    description:
+      'An accomplished cellist, TED Fellow Joshua Roman has practiced his instrument daily since he was a child — until a severe case of long COVID almost robbed him of his ability to play. In an inspiring talk, he plays a piece by Johann Sebastian Bach, shares how he found his way back to music and then performs a staggering new solo composition, titled "Immunity."',
     canonicalUrl:
       "https://www.ted.com/talks/joshua_roman_how_music_helped_me_live_through_long_covid",
-    viewedCount: 287715,
+    viewedCount: 288287,
     tedcomPercentage: "0.025",
     youtubePercentage: "0.0",
     podcastsPercentage: "0.969",
