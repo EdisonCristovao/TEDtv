@@ -38,7 +38,7 @@
     "react-native-screens": "~4.4.0",
     "react-native-svg": "15.8.0",
     "react-native-vector-icons": "^10.2.0",
-    "react-tv-space-navigation": "^3.6.1"
+    "react-tv-space-navigation": "^5.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
