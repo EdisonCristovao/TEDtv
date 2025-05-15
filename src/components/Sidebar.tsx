@@ -64,6 +64,7 @@ export default function Sidebar({ onSelect }: { onSelect: () => void }) {
   const handleMenuItemSelect = (item: { route: string; label: string }) => {
     toggleMenu(false);
     navigation.navigate(item.route as never);
+    onSelect();
   };
 
   useEffect(() => {
@@ -76,7 +77,6 @@ export default function Sidebar({ onSelect }: { onSelect: () => void }) {
     };
 
     toggleDrawer();
-    onSelect();
   }, [isMenuOpen]);
 
   return (
