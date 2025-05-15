@@ -20,7 +20,7 @@ const MyLibrary = () => {
   const [focusedIndex, setFocusedIndex] = useState(0);
 
   const renderScrollableRow = useCallback(
-    (title: string, data: any[]) => {
+    (title: string, data: any[], isSquare = false) => {
       return (
         <View style={styles.highlightsContainer}>
           <View
@@ -50,6 +50,7 @@ const MyLibrary = () => {
                   onFocus={() => {
                     setFocusedIndex(index);
                   }}
+                  isSquare={isSquare}
                   onSelect={() => {
                     navigation.navigate("Details", {
                       title: item.title,
@@ -101,7 +102,7 @@ const MyLibrary = () => {
             style={styles.scrollContent}
           >
             {renderScrollableRow("Keep Watching", data.talks)}
-            {renderScrollableRow("Keep Listening", data.podcasts)}
+            {renderScrollableRow("Keep Listening", data.podcasts, true)}
           </SpatialNavigationScrollView>
         </View>
       </View>

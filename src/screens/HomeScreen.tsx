@@ -38,13 +38,29 @@ export default function HomeScreen() {
   const renderHeader = useCallback(
     () => (
       <View style={styles.header}>
-        <Image
-          style={[styles.headerImage, { width: "80%", alignSelf: "flex-end" }]}
-          source={{
-            uri: focusedItem.headerImage,
+        <View
+          style={{
+            position: "absolute",
+            right: 0,
+            top: 0,
+            bottom: 0,
+            justifyContent: "center",
+            alignItems: "flex-end",
+            width: "60%",
+            height: "100%",
           }}
-          resizeMode="cover"
-        />
+        >
+          <Image
+            style={[
+              styles.headerImage,
+              { width: "100%", height: "100%", alignSelf: "flex-end" },
+            ]}
+            source={{
+              uri: focusedItem.headerImage,
+            }}
+            resizeMode="none"
+          />
+        </View>
         <LinearGradient
           colors={[
             "rgba(0,0,0,0.9)",

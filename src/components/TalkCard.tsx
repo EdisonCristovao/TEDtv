@@ -10,7 +10,12 @@ import {
 import { SpatialNavigationFocusableView } from "react-tv-space-navigation";
 import { scaledPixels } from "../hooks/useScale";
 import Typography from "./Typography";
-export default function TalkCard({ talk, onSelect, onFocus }) {
+export default function TalkCard({
+  talk,
+  onSelect,
+  onFocus,
+  isSquare = false,
+}) {
   return (
     <SpatialNavigationFocusableView onSelect={onSelect}>
       {({ isFocused }) => (
@@ -20,18 +25,26 @@ export default function TalkCard({ talk, onSelect, onFocus }) {
               style={[
                 styles.highlightThumbnail,
                 isFocused && styles.highlightThumbnailFocused,
+                isSquare ? { aspectRatio: 1 } : { aspectRatio: 16 / 9 },
               ]}
             >
               <Image
                 source={{ uri: talk.headerImage }}
-                style={styles.headerImage}
+                style={[
+                  styles.headerImage,
+                  isSquare && styles.headerImagePodcast,
+                ]}
               />
             </View>
 
             <Typography variant="body1" color="grey" fontWeight="bold">
               {talk.topic.toUpperCase()}
             </Typography>
-            <Typography variant="h2" color="#fff">
+            <Typography
+              variant="h2"
+              color="#fff"
+              style={isSquare ? { maxWidth: scaledPixels(200) } : {}}
+            >
               {talk.title}
             </Typography>
             <Typography variant="body1" color="grey">
@@ -46,11 +59,10 @@ export default function TalkCard({ talk, onSelect, onFocus }) {
 
 const styles = StyleSheet.create({
   container: {
-    width: scaledPixels(400),
     gap: scaledPixels(6),
   },
   highlightThumbnail: {
-    height: scaledPixels(240),
+    maxHeight: scaledPixels(240),
     marginBottom: scaledPixels(4),
   },
   highlightThumbnailFocused: {
@@ -61,6 +73,9 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     resizeMode: "cover",
+  },
+  headerImagePodcast: {
+    aspectRatio: 1,
   },
   thumbnailTextContainer: {},
 });
