@@ -86,35 +86,33 @@ export default function HomeScreen() {
       return (
         <View style={styles.highlightsContainer}>
           <Text style={styles.highlightsTitle}>{title}</Text>
-          {/* <SpatialNavigationScrollView horizontal> */}
-          <SpatialNavigationView
-            direction="horizontal"
-            style={{
-              flexDirection: "row",
-              gap: scaledPixels(10),
-              overflow: "scroll",
-            }}
-          >
-            {moviesData.map((item, index) => (
-              <TalkCard
-                key={`${item.id}-${index}`}
-                talk={item}
-                onFocus={() => {
-                  setFocusedIndex(index);
-                }}
-                onSelect={() => {
-                  console.log("SELECTED", item.title);
-                  navigation.navigate("Details", {
-                    title: item.title,
-                    description: item.description,
-                    headerImage: item.headerImage,
-                    movie: item.movie,
-                  });
-                }}
-              />
-            ))}
-          </SpatialNavigationView>
-          {/* </SpatialNavigationScrollView> */}
+          <SpatialNavigationScrollView horizontal>
+            <SpatialNavigationView
+              direction="horizontal"
+              style={{
+                gap: scaledPixels(50),
+              }}
+            >
+              {moviesData.map((item, index) => (
+                <TalkCard
+                  key={`${item.id}-${index}`}
+                  talk={item}
+                  onFocus={() => {
+                    setFocusedIndex(index);
+                  }}
+                  onSelect={() => {
+                    console.log("SELECTED", item.title);
+                    navigation.navigate("Details", {
+                      title: item.title,
+                      description: item.description,
+                      headerImage: item.headerImage,
+                      movie: item.movie,
+                    });
+                  }}
+                />
+              ))}
+            </SpatialNavigationView>
+          </SpatialNavigationScrollView>
         </View>
       );
     },
@@ -216,6 +214,7 @@ const styles = StyleSheet.create({
   },
   highlightsContainer: {
     padding: scaledPixels(10),
+    height: scaledPixels(490),
   },
   thumbnailPlaceholder: {
     backgroundColor: "rgba(255, 255, 255, 0.2)",

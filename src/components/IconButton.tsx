@@ -1,14 +1,14 @@
 import React from "react";
 import {
-  Pressable,
-  Text,
   StyleSheet,
   PressableProps,
   ViewStyle,
+  TouchableHighlight,
 } from "react-native";
 import { scaledPixels } from "../hooks/useScale";
 import { SpatialNavigationFocusableView } from "react-tv-space-navigation";
 import Icon from "react-native-vector-icons/FontAwesome5";
+
 interface CustomPressableProps extends PressableProps {
   name: string;
   onSelect: () => void;
@@ -24,17 +24,16 @@ const IconButton = ({
   return (
     <SpatialNavigationFocusableView onSelect={onSelect}>
       {({ isFocused }) => (
-        <Pressable
+        <TouchableHighlight
           {...props}
           style={[
             styles.watchButton,
             isFocused && styles.watchButtonFocused,
             style,
           ]}
-          onPress={onSelect}
         >
           <Icon name={name} size={30} color={isFocused ? "#000" : "#fff"} />
-        </Pressable>
+        </TouchableHighlight>
       )}
     </SpatialNavigationFocusableView>
   );
