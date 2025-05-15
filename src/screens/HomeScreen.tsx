@@ -90,9 +90,7 @@ export default function HomeScreen() {
             <SpatialNavigationView
               direction="horizontal"
               style={{
-                flexDirection: "row",
-                gap: scaledPixels(10),
-                overflow: "scroll",
+                gap: scaledPixels(50),
               }}
             >
               {moviesData.map((item, index) => (
@@ -103,6 +101,7 @@ export default function HomeScreen() {
                     setFocusedIndex(index);
                   }}
                   onSelect={() => {
+                    console.log("SELECTED", item.title);
                     navigation.navigate("Details", {
                       title: item.title,
                       description: item.description,
@@ -215,6 +214,7 @@ const styles = StyleSheet.create({
   },
   highlightsContainer: {
     padding: scaledPixels(10),
+    height: scaledPixels(490),
   },
   thumbnailPlaceholder: {
     backgroundColor: "rgba(255, 255, 255, 0.2)",
