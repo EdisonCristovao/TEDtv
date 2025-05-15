@@ -38,9 +38,7 @@ const MyLibrary = () => {
             <SpatialNavigationView
               direction="horizontal"
               style={{
-                flexDirection: "row",
                 gap: scaledPixels(50),
-                overflow: "scroll",
               }}
             >
               {moviesData.map((item, index) => (
@@ -164,6 +162,7 @@ const styles = StyleSheet.create({
   },
   highlightsContainer: {
     paddingBottom: scaledPixels(10),
+    height: scaledPixels(490),
   },
   highlightsTitle: {
     color: "rgba(255, 255, 255, 0.75)",
