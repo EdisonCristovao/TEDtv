@@ -13,7 +13,7 @@ import TalkCard from "../components/TalkCard";
 import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { MaterialIcons } from "@expo/vector-icons";
 
-import data from "../data/talks.json";
+import data from "../mock/talks.json";
 
 const MyLibrary = () => {
   const navigation = useNavigation<NavigationProp<any>>();

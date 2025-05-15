@@ -56,7 +56,7 @@ export const drawerItems = [
   },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ onSelect }: { onSelect: () => void }) {
   const { isOpen: isMenuOpen, toggleMenu } = useMenuContext();
   const widthAnim = useRef(new Animated.Value(COLLAPSED_WIDTH)).current;
   const navigation = useNavigation();
@@ -76,6 +76,7 @@ export default function Sidebar() {
     };
 
     toggleDrawer();
+    onSelect();
   }, [isMenuOpen]);
 
   return (

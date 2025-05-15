@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, StyleSheet } from "react-native";
+import { scaledPixels } from "../hooks/useScale";
 
 type TypographyVariant = "h1" | "h2" | "body1" | "body2" | "caption";
 
@@ -9,17 +10,17 @@ interface TypographyProps {
   style?: object;
   color?: string;
   fontWeight?:
-    | "normal"
-    | "bold"
-    | "100"
-    | "200"
-    | "300"
-    | "400"
-    | "500"
-    | "600"
-    | "700"
-    | "800"
-    | "900";
+  | "normal"
+  | "bold"
+  | "100"
+  | "200"
+  | "300"
+  | "400"
+  | "500"
+  | "600"
+  | "700"
+  | "800"
+  | "900";
 }
 
 const Typography: React.FC<TypographyProps> = ({
@@ -55,21 +56,21 @@ const Typography: React.FC<TypographyProps> = ({
 
 const styles = StyleSheet.create({
   h1: {
-    fontSize: 32,
+    fontSize: scaledPixels(32),
     fontWeight: "bold",
   },
   h2: {
-    fontSize: 24,
+    fontSize: scaledPixels(24),
     fontWeight: "600",
   },
   body1: {
-    fontSize: 16,
+    fontSize: scaledPixels(16),
   },
   body2: {
-    fontSize: 14,
+    fontSize: scaledPixels(14),
   },
   caption: {
-    fontSize: 12,
+    fontSize: scaledPixels(12),
     color: "#666666",
   },
 });
